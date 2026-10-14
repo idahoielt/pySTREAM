@@ -1,0 +1,53 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+wheels/
+
+# Test, coverage and tool caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary lock files Excel creates while a workbook is open
+~$*
+
+# Plots pySTREAM saves while running, and its error log
+figures/
+pySTREAM error log.txt
+
+# Excel STREAM models used to validate pySTREAM; they are not part of pySTREAM
+# (STREAM: https://www.esymodels.man.dtu.dk/stream)
+/*.xlsm

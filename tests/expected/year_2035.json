@@ -1,0 +1,4884 @@
+{
+ "BY": {
+  "CO2": {
+   "Bioenergy": {
+    "Agriculture": 0.0,
+    "District Heat": -0.08766990291262135,
+    "Electricity production no CCS": -0.17814285714285716,
+    "Electricity production w. CCS": -0.17814285714285716,
+    "Fuel Refinery": -0.9269368042960249,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": -1.1927495643515034,
+    "Total emissions incl. CCS": -1.1927495643515034,
+    "Transport": 0.0
+   },
+   "Coal": {
+    "Agriculture": 0.08422811764705883,
+    "District Heat": 3.0898749999999997,
+    "Electricity production no CCS": 5.280760869565217,
+    "Electricity production w. CCS": 5.280760869565217,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.5155966666666666,
+    "Residential": 0.039404705882352946,
+    "Tertiary": 0.004678470588235295,
+    "Total emissions excl. CCS": 9.014543830349531,
+    "Total emissions incl. CCS": 9.014543830349531,
+    "Transport": 0.0
+   },
+   "District Heating": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Electricity": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Geothermal": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Hydro": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Natural Gas": {
+    "Agriculture": 0.1000747317073171,
+    "District Heat": 1.2814757281553397,
+    "Electricity production no CCS": 0.7780425531914895,
+    "Electricity production w. CCS": 0.7780425531914895,
+    "Fuel Refinery": 0.0,
+    "Industry": 1.8613894634146344,
+    "Residential": 1.692019512195122,
+    "Tertiary": 0.5003736585365853,
+    "Total emissions excl. CCS": 6.213375647200488,
+    "Total emissions incl. CCS": 6.213375647200488,
+    "Transport": 0.0
+   },
+   "Nuclear": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Oil": {
+    "Agriculture": 1.293511675,
+    "District Heat": 0.12949999999999998,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 4.093802240892698,
+    "Industry": 1.620605025,
+    "Residential": 0.9911375,
+    "Tertiary": 0.2439854,
+    "Total emissions excl. CCS": 17.160412152355605,
+    "Total emissions incl. CCS": 17.160412152355605,
+    "Transport": 8.787870311462907
+   },
+   "Solar": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Waste": {
+    "Agriculture": 0.0,
+    "District Heat": 0.46796561604584525,
+    "Electricity production no CCS": 0.4917272727272727,
+    "Electricity production w. CCS": 0.4917272727272727,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.959692888773118,
+    "Total emissions incl. CCS": 0.959692888773118,
+    "Transport": 0.0
+   },
+   "Wave": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Wind": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   }
+  },
+  "CO2_by_fuel": {
+   "Biodiesel": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Biogas": {
+    "Agriculture": null,
+    "District Heat": -0.08766990291262135,
+    "Electricity production no CCS": -0.17814285714285716,
+    "Electricity production w. CCS": -0.17814285714285716,
+    "Fuel Refinery": 0.2658127600554785,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Biomass (Energy crops)": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Biomass (Manure)": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -1.1927495643515034,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": -1.1927495643515034,
+    "Total emissions incl. CCS": -1.1927495643515034,
+    "Transport": null
+   },
+   "Biomass (Straw,woodwaste)": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Coal": {
+    "Agriculture": 0.08422811764705883,
+    "District Heat": 3.0898749999999997,
+    "Electricity production no CCS": 5.280760869565217,
+    "Electricity production w. CCS": 5.280760869565217,
+    "Fuel Refinery": null,
+    "Industry": 0.5155966666666666,
+    "Residential": 0.039404705882352946,
+    "Tertiary": 0.004678470588235295,
+    "Total emissions excl. CCS": 9.014543830349531,
+    "Total emissions incl. CCS": 9.014543830349531,
+    "Transport": null
+   },
+   "Crude Oil": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": 14.178156572355604,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 14.178156572355604,
+    "Total emissions incl. CCS": 14.178156572355604,
+    "Transport": null
+   },
+   "Diesel": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -6.72076976451807,
+    "Industry": 1.620605025,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.3241210050000003,
+    "Total emissions incl. CCS": 0.3241210050000003,
+    "Transport": 5.4242857445180706
+   },
+   "District Heating": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Electricity": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Ethanol": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Gasoline": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -3.3635845669448363,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 3.3635845669448363
+   },
+   "Geothermal": {
+    "Agriculture": null,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Hydrogen": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Hydropower": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Imported electricity": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Imported heat": {
+    "Agriculture": null,
+    "District Heat": 0.0,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Methanol": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Municipal Waste": {
+    "Agriculture": null,
+    "District Heat": 0.46796561604584525,
+    "Electricity production no CCS": 0.4917272727272727,
+    "Electricity production w. CCS": 0.4917272727272727,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.959692888773118,
+    "Total emissions incl. CCS": 0.959692888773118,
+    "Transport": null
+   },
+   "Natural Gas": {
+    "Agriculture": 0.1000747317073171,
+    "District Heat": 1.2814757281553397,
+    "Electricity production no CCS": 0.7780425531914895,
+    "Electricity production w. CCS": 0.7780425531914895,
+    "Fuel Refinery": null,
+    "Industry": 1.8613894634146344,
+    "Residential": 1.692019512195122,
+    "Tertiary": 0.5003736585365853,
+    "Total emissions excl. CCS": 6.213375647200488,
+    "Total emissions incl. CCS": 6.213375647200488,
+    "Transport": 0.0
+   },
+   "Nuclear - Uranium": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Oil": {
+    "Agriculture": 1.293511675,
+    "District Heat": 0.12949999999999998,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": 0.9911375,
+    "Tertiary": 0.2439854,
+    "Total emissions excl. CCS": 2.658134575,
+    "Total emissions incl. CCS": 2.658134575,
+    "Transport": null
+   },
+   "Solar Heating": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Solar Power": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "UPGR Biogas": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Wave": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Wind": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   }
+  },
+  "co2_price": 5.0,
+  "costs": {
+   "CO2": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Coal": {
+     "Agriculture": 0.42114058823529416,
+     "District Heat": 15.449374999999998,
+     "Electricity": 26.403804347826085,
+     "Fuel Refinery": null,
+     "Industry": 2.577983333333333,
+     "Residential": 0.19702352941176474,
+     "Tertiary": 0.023392352941176475,
+     "Transport": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 8.103025125,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 27.121428722590352
+    },
+    "District Heating": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 16.817922834724182
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 2.339828080229226,
+     "Electricity": 2.4586363636363635,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Natural Gas": {
+     "Agriculture": 0.5003736585365854,
+     "District Heat": 6.407378640776699,
+     "Electricity": 3.8902127659574477,
+     "Fuel Refinery": null,
+     "Industry": 9.306947317073172,
+     "Residential": 8.46009756097561,
+     "Tertiary": 2.5018682926829268,
+     "Transport": null
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Oil": {
+     "Agriculture": 6.467558374999999,
+     "District Heat": 0.6474999999999999,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 4.9556875,
+     "Tertiary": 1.219927,
+     "Transport": null
+    },
+    "Solar Heating": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    }
+   },
+   "O&M": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": 0.8750000000000001,
+     "Electricity": 4.6722222222222225,
+     "Fuel Refinery": 58.73902150478007,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": 2.3001113013698626,
+     "District Heat": 127.00284722222221,
+     "Electricity": 64.05125771604939,
+     "Fuel Refinery": null,
+     "Industry": 4.929952500000001,
+     "Residential": 36.19802304353294,
+     "Tertiary": 1.7982648401826484,
+     "Transportation": null
+    },
+    "Coal": {
+     "Agriculture": 0.7527597031963471,
+     "District Heat": 20.170542635658915,
+     "Electricity": 58.59791666666666,
+     "Fuel Refinery": null,
+     "Industry": 3.2971050000000006,
+     "Residential": 0.30137875259640867,
+     "Tertiary": 0.04181221461187215,
+     "Transportation": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 293.419254733821,
+     "Industry": 1.648967261904762,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "District Heating": {
+     "Agriculture": 1.2612411212582446,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 1.3291428571428572,
+     "Residential": 71.32826459201907,
+     "Tertiary": 24.16278221714866,
+     "Transportation": null
+    },
+    "Electricity": {
+     "Agriculture": 0.11308504566210045,
+     "District Heat": 0.08343434343434343,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.08776190476190476,
+     "Residential": 1.3316952274862477,
+     "Tertiary": 0.0,
+     "Transportation": null
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 194.31342955143376,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": 0.14388888888888893,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.1115352053388576,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 164.56153444444442,
+     "Electricity": 97.11993055555554,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Natural Gas": {
+     "Agriculture": 3.8600049657534248,
+     "District Heat": 10.24716408268734,
+     "Electricity": 17.231944444444444,
+     "Fuel Refinery": null,
+     "Industry": 8.652717460317461,
+     "Residential": 64.72255973727309,
+     "Tertiary": 19.30002482876712,
+     "Transportation": null
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Oil": {
+     "Agriculture": 2.7714179826230336,
+     "District Heat": 0.2552083333333333,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 6.366774967802365,
+     "Tertiary": 0.5227517757483511,
+     "Transportation": null
+    },
+    "Solar Heating": {
+     "Agriculture": 0.0,
+     "District Heat": 0.13299999999999998,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.4548929047914334,
+     "Tertiary": 0.05689416177429876,
+     "Transportation": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 7.01160846238938,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 211.7622685185185,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    }
+   },
+   "capital": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": 0.44808373950518215,
+     "Electricity": 5.156519224464397,
+     "Fuel Refinery": 38.1120936088333,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": 5.3728957303319,
+     "District Heat": 149.1397236212511,
+     "Electricity": 99.67294822767388,
+     "Fuel Refinery": null,
+     "Industry": 15.354689269290992,
+     "Residential": 125.68790463556441,
+     "Tertiary": 4.200618237938771,
+     "Transportation": null
+    },
+    "Coal": {
+     "Agriculture": 1.7583929059697259,
+     "District Heat": 36.02278883778138,
+     "Electricity": 115.43237270875781,
+     "Fuel Refinery": null,
+     "Industry": 10.269069075863444,
+     "Residential": 1.0464567048307427,
+     "Tertiary": 0.09767034718278805,
+     "Transportation": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 505.9381413557887,
+     "Industry": 7.765369431395771,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 1116.3054776846125
+    },
+    "District Heating": {
+     "Agriculture": 1.4848692686179847,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 1.6821713152842972,
+     "Residential": 106.63534845123706,
+     "Tertiary": 28.447036933556248,
+     "Transportation": null
+    },
+    "Electricity": {
+     "Agriculture": 5.917152423687301,
+     "District Heat": 0.22630491894201119,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 8.610232752740506,
+     "Residential": 50.69175089823061,
+     "Tertiary": 0.0,
+     "Transportation": 7.519224293275433
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 190.90696963357928,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 1331.5933649669628
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": 0.3982966573379397,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.3514814289454962,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 0.0
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 174.24056270472937,
+     "Electricity": 115.54714942354241,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Natural Gas": {
+     "Agriculture": 0.8030980310617708,
+     "District Heat": 5.847914584793545,
+     "Electricity": 17.416588208147854,
+     "Fuel Refinery": null,
+     "Industry": 11.58973581832263,
+     "Residential": 25.387104294402988,
+     "Tertiary": 4.015490155308854,
+     "Transportation": 0.0
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Oil": {
+     "Agriculture": 13.051250307432982,
+     "District Heat": 0.421677806182947,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 16.015962639364627,
+     "Tertiary": 2.4617594014056032,
+     "Transportation": null
+    },
+    "Solar Heating": {
+     "Agriculture": 0.0,
+     "District Heat": 5.73481816408808,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 4.243203602610373,
+     "Tertiary": 0.6279558010249606,
+     "Transportation": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 46.09690246986401,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 481.59629874940765,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    }
+   },
+   "fuel": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": 50.70592693902438,
+     "Electricity": 52.63596487361813,
+     "Fuel Refinery": -96.85111511361339,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": 11.513699999999998,
+     "District Heat": 377.068561722454,
+     "Electricity": 7.105427357601002e-14,
+     "Fuel Refinery": null,
+     "Industry": 32.866350000000004,
+     "Residential": 201.14499999999998,
+     "Tertiary": 9.0016,
+     "Transport": null
+    },
+    "Cheap coal": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Coal": {
+     "Agriculture": 2.2382514000000002,
+     "District Heat": 96.59925,
+     "Electricity": 165.09326086956523,
+     "Fuel Refinery": null,
+     "Industry": 13.0565358,
+     "Residential": 0.9947718000000001,
+     "Tertiary": 0.12432420000000001,
+     "Transport": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": -799.3573960896094,
+     "Industry": 407.37256572376464,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 1704.382905516388
+    },
+    "District Heating": {
+     "Agriculture": 0.0,
+     "District Heat": -0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": null
+    },
+    "Electricity": {
+     "Agriculture": 0.0,
+     "District Heat": 0.0,
+     "Electricity": -0.0,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": 0.0
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": -385.2203991850131,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 979.9259768078207
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 311.6578637818685,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Lignite": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 0.0
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": -0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Municipal Waste, RE": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Municipal Waste, non-RE": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Natural Gas": {
+     "Agriculture": 7.341553800000001,
+     "District Heat": 127.17557450939887,
+     "Electricity": 57.07775744680851,
+     "Fuel Refinery": null,
+     "Industry": 136.5528606,
+     "Residential": 124.12776,
+     "Tertiary": 36.70776899999999,
+     "Transport": 0.0
+    },
+    "Natural Gas CNG": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Nuclear": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Oil": {
+     "Agriculture": 140.8179737,
+     "District Heat": 17.6225,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 107.90005000000001,
+     "Tertiary": 26.5614376,
+     "Transport": null
+    },
+    "Solar Heating": {
+     "Agriculture": 0.0,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Surplus Heat": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Thorium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    }
+   }
+  },
+  "el_DH": 0.022857142857142857,
+  "el_FR": 1.1560759682594206,
+  "el_transport": 2.358985045773644,
+  "fuel_consumption": {
+   "Biodiesel": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Biogas": {
+    "Agriculture": null,
+    "DH boilers": 2.0388349514563107,
+    "Electricity production": 3.1485714285714286,
+    "Fuel Refinery": -6.181692094313454,
+    "Heat production": 0.9942857142857144,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Biomass (Energy crops)": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": 0.927253814147018,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.927253814147018,
+    "Transport": null
+   },
+   "Biomass (Manure)": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": 10.817961165048544,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 10.817961165048544,
+    "Transport": null
+   },
+   "Biomass (Straw,woodwaste)": {
+    "Agriculture": 2.3027399999999996,
+    "DH boilers": 40.52034058656575,
+    "Electricity production": 1.4210854715202004e-14,
+    "Fuel Refinery": 0.0,
+    "Heat production": 34.89337175792505,
+    "Industry": 6.573270000000001,
+    "Residential": 40.229,
+    "Tertiary": 1.80032,
+    "Total fuel consumption": 126.31904234449081,
+    "Transport": null
+   },
+   "Coal": {
+    "Agriculture": 0.75362,
+    "DH boilers": 32.525,
+    "Electricity production": 55.586956521739125,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": 4.39614,
+    "Residential": 0.33494,
+    "Tertiary": 0.04186,
+    "Total fuel consumption": 93.63851652173913,
+    "Transport": null
+   },
+   "Crude Oil": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": 189.04208763140807,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 189.04208763140807,
+    "Transport": null
+   },
+   "Diesel": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -86.16371492971885,
+    "Heat production": null,
+    "Industry": 16.62159,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 3.552713678800501e-15,
+    "Transport": 69.54212492971885
+   },
+   "District Heating": {
+    "Agriculture": 1.59098,
+    "DH boilers": -105.5105,
+    "Electricity production": null,
+    "Fuel Refinery": 0.0,
+    "Heat production": -46.01827229224878,
+    "Industry": 3.34944,
+    "Residential": 65.697,
+    "Tertiary": 30.4799,
+    "Total fuel consumption": -50.41145229224878,
+    "Transport": null
+   },
+   "Electricity": {
+    "Agriculture": 7.0398000000000005,
+    "DH boilers": 0.022857142857142857,
+    "Electricity production": -120.60504815689022,
+    "Fuel Refinery": 1.1560759682594206,
+    "Heat production": null,
+    "Industry": 32.07169,
+    "Residential": 42.1585,
+    "Tertiary": 35.79714,
+    "Total fuel consumption": -2.042810365310288e-14,
+    "Transport": 2.358985045773644
+   },
+   "Ethanol": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Gasoline": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -43.12287906339534,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 43.12287906339534
+   },
+   "Geothermal": {
+    "Agriculture": null,
+    "DH boilers": 0.05982905982905984,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.05982905982905984,
+    "Transport": null
+   },
+   "Hydrogen": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Hydropower": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.06,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.06,
+    "Transport": null
+   },
+   "Imported electricity": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 28.332533071078956,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 28.332533071078956,
+    "Transport": null
+   },
+   "Imported heat": {
+    "Agriculture": null,
+    "DH boilers": 0.0,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Methanol": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -0.0,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Municipal Waste": {
+    "Agriculture": null,
+    "DH boilers": 25.998089780324737,
+    "Electricity production": -3.552713678800501e-15,
+    "Fuel Refinery": null,
+    "Heat production": 27.31818181818182,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 53.31627159850655,
+    "Transport": null
+   },
+   "Natural Gas": {
+    "Agriculture": 1.4653800000000001,
+    "DH boilers": 22.883495145631066,
+    "Electricity production": 11.392765957446809,
+    "Fuel Refinery": null,
+    "Heat production": 2.5008510638297876,
+    "Industry": 27.25606,
+    "Residential": 24.776,
+    "Tertiary": 7.326899999999999,
+    "Total fuel consumption": 97.60145216690766,
+    "Transport": 0.0
+   },
+   "Nuclear - Uranium": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Oil": {
+    "Agriculture": 13.98391,
+    "DH boilers": 1.7499999999999998,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": 10.715,
+    "Tertiary": 2.63768,
+    "Total fuel consumption": 29.08659,
+    "Transport": null
+   },
+   "Solar Heating": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.84,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": 0.0,
+    "Residential": 0.494,
+    "Tertiary": 0.08373,
+    "Total fuel consumption": 1.4177300000000002,
+    "Transport": null
+   },
+   "Solar Power": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 2.17,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 2.17,
+    "Transport": null
+   },
+   "UPGR Biogas": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Wave": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Wind": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 49.6,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 49.6,
+    "Transport": null
+   }
+  },
+  "fuel_secondary": {
+   "Biodiesel": {
+    "Fuel consumption in all sectors": null
+   },
+   "Biogas": {
+    "Fuel consumption in all sectors": 6.181692094313454
+   },
+   "Diesel": {
+    "Fuel consumption in all sectors": 86.16371492971885
+   },
+   "Ethanol": {
+    "Fuel consumption in all sectors": null
+   },
+   "Gasoline": {
+    "Fuel consumption in all sectors": 43.12287906339534
+   },
+   "Hydrogen": {
+    "Fuel consumption in all sectors": null
+   },
+   "Methanol": {
+    "Fuel consumption in all sectors": 0.0
+   },
+   "UPGR Biogas": {
+    "Fuel consumption in all sectors": null
+   }
+  },
+  "gridloss": 9.497484914188746,
+  "heat": {
+   "Biogas Boiler": {
+    "Amount": 2.1
+   },
+   "Coal boiler": {
+    "Amount": 26.02
+   },
+   "Electric Boiler": {
+    "Amount": 0.0
+   },
+   "Geothermal": {
+    "Amount": 0.07
+   },
+   "Heat imports": {
+    "Amount": 0.0
+   },
+   "Heatpump": {
+    "Amount": 0.08
+   },
+   "Municipal waste": {
+    "Amount": 27.22
+   },
+   "Natural gas boiler": {
+    "Amount": 23.57
+   },
+   "Oil boiler": {
+    "Amount": 1.4
+   },
+   "Solar heat": {
+    "Amount": 0.84
+   },
+   "Wood pellet boiler": {
+    "Amount": 42.83
+   }
+  },
+  "power": {
+   "Biogas Plant": {
+    "Amount": 1.74,
+    "CHP heat production": 1.9885714285714289,
+    "Total fuel consumption": 4.142857142857143
+   },
+   "Biomass": {
+    "Amount": 10.09,
+    "CHP heat production": 25.512870317002868,
+    "Total fuel consumption": 34.89337175792507
+   },
+   "Biomass incl. CO2-storage": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "CCGT": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "Coal Plant (incl. Peat)": {
+    "Amount": 25.57,
+    "CHP heat production": null,
+    "Total fuel consumption": 55.586956521739125
+   },
+   "Coal incl. CO2-storage": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "Gasturbine": {
+    "Amount": 6.53,
+    "CHP heat production": 5.001702127659575,
+    "Total fuel consumption": 13.893617021276597
+   },
+   "Geothermal": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Hydro": {
+    "Amount": 0.06,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.06
+   },
+   "Imported electricity": {
+    "Amount": 28.332533071078956,
+    "CHP heat production": null,
+    "Total fuel consumption": 28.332533071078956
+   },
+   "Natural gas incl. CO2-storage": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "Nuclear": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Photo voltaic": {
+    "Amount": 2.17,
+    "CHP heat production": null,
+    "Total fuel consumption": 2.17
+   },
+   "Waste incineration": {
+    "Amount": 6.01,
+    "CHP heat production": 21.636,
+    "Total fuel consumption": 27.318181818181817
+   },
+   "Wave power": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Wind, offshore": {
+    "Amount": 18.3,
+    "CHP heat production": null,
+    "Total fuel consumption": 18.3
+   },
+   "Wind, onshore": {
+    "Amount": 31.3,
+    "CHP heat production": null,
+    "Total fuel consumption": 31.3
+   }
+  },
+  "primary_fuel": {
+   "Bioenergy": {
+    "Agriculture": 2.3027399999999996,
+    "DH boilers": 40.52034058656575,
+    "Electricity production": 1.4210854715202004e-14,
+    "Fuel Refinery": 11.745214979195563,
+    "Heat production": 34.89337175792505,
+    "Industry": 6.573270000000001,
+    "Residential": 40.229,
+    "Tertiary": 1.80032,
+    "Total primary fuel consumption": 138.06425732368638,
+    "Transport": 0.0
+   },
+   "Coal": {
+    "Agriculture": 0.75362,
+    "DH boilers": 32.525,
+    "Electricity production": 55.586956521739125,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 4.39614,
+    "Residential": 0.33494,
+    "Tertiary": 0.04186,
+    "Total primary fuel consumption": 93.63851652173913,
+    "Transport": 0.0
+   },
+   "District Heating": {
+    "Agriculture": 1.59098,
+    "DH boilers": -105.5105,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": -46.01827229224878,
+    "Industry": 3.34944,
+    "Residential": 65.697,
+    "Tertiary": 30.4799,
+    "Total primary fuel consumption": -50.41145229224878,
+    "Transport": 0.0
+   },
+   "Electricity": {
+    "Agriculture": 7.0398000000000005,
+    "DH boilers": 0.022857142857142857,
+    "Electricity production": -92.27251508581126,
+    "Fuel Refinery": 1.1560759682594206,
+    "Heat production": 0.0,
+    "Industry": 32.07169,
+    "Residential": 42.1585,
+    "Tertiary": 35.79714,
+    "Total primary fuel consumption": 28.332533071078934,
+    "Transport": 2.358985045773644
+   },
+   "Geothermal": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.05982905982905984,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.05982905982905984,
+    "Transport": 0.0
+   },
+   "Hydro": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 0.06,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.06,
+    "Transport": 0.0
+   },
+   "Natural Gas": {
+    "Agriculture": 1.4653800000000001,
+    "DH boilers": 22.883495145631066,
+    "Electricity production": 11.392765957446809,
+    "Fuel Refinery": 0.0,
+    "Heat production": 2.5008510638297876,
+    "Industry": 27.25606,
+    "Residential": 24.776,
+    "Tertiary": 7.326899999999999,
+    "Total primary fuel consumption": 97.60145216690766,
+    "Transport": 0.0
+   },
+   "Nuclear": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Oil": {
+    "Agriculture": 13.98391,
+    "DH boilers": 1.7499999999999998,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 189.04208763140807,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 10.715,
+    "Tertiary": 2.63768,
+    "Total primary fuel consumption": 218.12867763140807,
+    "Transport": 0.0
+   },
+   "Solar": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.84,
+    "Electricity production": 2.17,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.494,
+    "Tertiary": 0.08373,
+    "Total primary fuel consumption": 3.58773,
+    "Transport": 0.0
+   },
+   "Waste": {
+    "Agriculture": 0.0,
+    "DH boilers": 25.998089780324737,
+    "Electricity production": -3.552713678800501e-15,
+    "Fuel Refinery": 0.0,
+    "Heat production": 27.31818181818182,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 53.31627159850655,
+    "Transport": 0.0
+   },
+   "Wave": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Wind": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 49.6,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 49.6,
+    "Transport": 0.0
+   }
+  },
+  "total_DH_demand": 118.96155294117646,
+  "total_electricity": 130.10253307107897,
+  "transport_consumption": {
+   "Agriculture": {
+    "Energy consumption": 0.0
+   },
+   "Air transport": {
+    "Energy consumption": 343.7
+   },
+   "Aviation & ferries": {
+    "Energy consumption": 32471.630999999998
+   },
+   "Bike": {
+    "Energy consumption": 0.0
+   },
+   "Bus": {
+    "Energy consumption": 8769.192792324933
+   },
+   "Car": {
+    "Energy consumption": 53903.59882924417
+   },
+   "Fishery": {
+    "Energy consumption": 5205.0
+   },
+   "Shipping": {
+    "Energy consumption": 1036.2555
+   },
+   "Train": {
+    "Energy consumption": 4685.395077742462
+   },
+   "Train Goods": {
+    "Energy consumption": 25.057702926789926
+   },
+   "Trucks and cargo vans": {
+    "Energy consumption": 8584.158136649468
+   }
+  },
+  "transport_fuels": {
+   "Biodiesel": {
+    "Share of total transport consumption": null,
+    "Total transport consumption": null
+   },
+   "Diesel": {
+    "Share of total transport consumption": 0.6045880125597778,
+    "Total transport consumption": 69542.12492971885
+   },
+   "Electricity": {
+    "Share of total transport consumption": 0.02050863533324434,
+    "Total transport consumption": 2358.9850457736443
+   },
+   "Ethanol": {
+    "Share of total transport consumption": null,
+    "Total transport consumption": null
+   },
+   "Gasoline": {
+    "Share of total transport consumption": 0.37490335210697806,
+    "Total transport consumption": 43122.87906339534
+   },
+   "Hydrogen": {
+    "Share of total transport consumption": null,
+    "Total transport consumption": null
+   },
+   "Methanol": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "Natural Gas": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "UPGR Biogas": {
+    "Share of total transport consumption": null,
+    "Total transport consumption": null
+   }
+  }
+ },
+ "SC": {
+  "CO2": {
+   "Bioenergy": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": -0.6124516121244931,
+    "Electricity production w. CCS": -0.6124516121244931,
+    "Fuel Refinery": -3.010226163866551,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": -3.9201852502494305,
+    "Total emissions incl. CCS": -3.9201852502494305,
+    "Transport": -0.29750747425838653
+   },
+   "Coal": {
+    "Agriculture": 0.08626583093695334,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 7.969344099601304,
+    "Electricity production w. CCS": 0.7969344099601301,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 8.055609930538257,
+    "Total emissions incl. CCS": 0.8832002408970834,
+    "Transport": 0.0
+   },
+   "District Heating": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Electricity": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Geothermal": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Hydro": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Natural Gas": {
+    "Agriculture": 0.08596936808133902,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 1.1668054474924128,
+    "Electricity production w. CCS": 0.11668054474924117,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.03643585889180709,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 1.289210674465559,
+    "Total emissions incl. CCS": 0.23908577172238726,
+    "Transport": 0.0
+   },
+   "Nuclear": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Oil": {
+    "Agriculture": 1.1479537624943885,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 1.1479537624943885,
+    "Total emissions incl. CCS": 1.1479537624943885,
+    "Transport": 0.0
+   },
+   "Solar": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Waste": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.5764322229546797,
+    "Electricity production w. CCS": 0.5764322229546797,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.5764322229546797,
+    "Total emissions incl. CCS": 0.5764322229546797,
+    "Transport": 0.0
+   },
+   "Wave": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Wind": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   }
+  },
+  "CO2_by_fuel": {
+   "Biodiesel": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Biogas": {
+    "Agriculture": null,
+    "District Heat": -0.0,
+    "Electricity production no CCS": -0.6124516121244931,
+    "Electricity production w. CCS": -0.6124516121244931,
+    "Fuel Refinery": 0.6124516121244931,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Biomass (Energy crops)": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Biomass (Manure)": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -3.9201852502494305,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": -3.9201852502494305,
+    "Total emissions incl. CCS": -3.9201852502494305,
+    "Transport": null
+   },
+   "Biomass (Straw,woodwaste)": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Coal": {
+    "Agriculture": 0.08626583093695334,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 7.969344099601304,
+    "Electricity production w. CCS": 0.7969344099601301,
+    "Fuel Refinery": null,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 8.055609930538257,
+    "Total emissions incl. CCS": 0.8832002408970834,
+    "Transport": null
+   },
+   "Crude Oil": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Diesel": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": 0.0,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "District Heating": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Electricity": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Ethanol": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Gasoline": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Geothermal": {
+    "Agriculture": null,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Hydrogen": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Hydropower": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Imported electricity": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Imported heat": {
+    "Agriculture": null,
+    "District Heat": 0.0,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Methanol": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": -0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": 0.0
+   },
+   "Municipal Waste": {
+    "Agriculture": null,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 0.5764322229546797,
+    "Electricity production w. CCS": 0.5764322229546797,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.5764322229546797,
+    "Total emissions incl. CCS": 0.5764322229546797,
+    "Transport": null
+   },
+   "Natural Gas": {
+    "Agriculture": 0.08596936808133902,
+    "District Heat": 0.0,
+    "Electricity production no CCS": 1.1668054474924128,
+    "Electricity production w. CCS": 0.11668054474924117,
+    "Fuel Refinery": null,
+    "Industry": 0.03643585889180709,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 1.289210674465559,
+    "Total emissions incl. CCS": 0.23908577172238726,
+    "Transport": 0.0
+   },
+   "Nuclear - Uranium": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Oil": {
+    "Agriculture": 1.1479537624943885,
+    "District Heat": 0.0,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 1.1479537624943885,
+    "Total emissions incl. CCS": 1.1479537624943885,
+    "Transport": null
+   },
+   "Solar Heating": {
+    "Agriculture": 0.0,
+    "District Heat": 0.0,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": null,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Solar Power": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "UPGR Biogas": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": null,
+    "Electricity production w. CCS": null,
+    "Fuel Refinery": 0.29750747425838653,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": -0.29750747425838653
+   },
+   "Wave": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   },
+   "Wind": {
+    "Agriculture": null,
+    "District Heat": null,
+    "Electricity production no CCS": 0.0,
+    "Electricity production w. CCS": 0.0,
+    "Fuel Refinery": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total emissions excl. CCS": 0.0,
+    "Total emissions incl. CCS": 0.0,
+    "Transport": null
+   }
+  },
+  "FEC": {
+   "Coal Boiler": {
+    "Agriculture": 862.6583093695333,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total by type": 862.6583093695333
+   },
+   "District Heating": {
+    "Agriculture": 2033.8080902164256,
+    "Industry": 14536.931737325,
+    "Residential": 51860.427709011085,
+    "Tertiary": 24830.310163719307,
+    "Total by type": 93261.4777002718
+   },
+   "Electric Heater": {
+    "Agriculture": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total by type": 0.0
+   },
+   "Electricity appliances": {
+    "Agriculture": 8471.62682795075,
+    "Industry": 25300.461139216368,
+    "Residential": 23676.92251399069,
+    "Tertiary": 29889.603082337653,
+    "Total by type": 87338.61356349546
+   },
+   "Gas Boiler": {
+    "Agriculture": 1535.1672871667683,
+    "Industry": 585.5763036183282,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total by type": 2120.743590785097
+   },
+   "Heatpumps": {
+    "Agriculture": 532.7826319134372,
+    "Industry": 600.9862063451263,
+    "Residential": 6297.059130359999,
+    "Tertiary": 1942.6273954545688,
+    "Total by type": 9373.45536407313
+   },
+   "Oil Boiler": {
+    "Agriculture": 14892.373135062337,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total by type": 14892.373135062337
+   },
+   "Solar heating": {
+    "Agriculture": 0.0,
+    "Industry": 0.0,
+    "Residential": 3641.3428884255645,
+    "Tertiary": 671.0894638843056,
+    "Total by type": 4312.43235230987
+   },
+   "Wood Pellet Boiler": {
+    "Agriculture": 2500.4940854683095,
+    "Industry": 29522.805307424045,
+    "Residential": 31565.82070461789,
+    "Tertiary": 706.4099619834795,
+    "Total by type": 64295.53005949372
+   }
+  },
+  "co2_price": 50.0,
+  "costs": {
+   "CO2": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Coal": {
+     "Agriculture": 4.313291546847667,
+     "District Heat": null,
+     "Electricity": 39.846720498006505,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "District Heating": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 28.821611147733982,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Natural Gas": {
+     "Agriculture": 4.298468404066951,
+     "District Heat": null,
+     "Electricity": 5.834027237462058,
+     "Fuel Refinery": null,
+     "Industry": 1.8217929445903545,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Oil": {
+     "Agriculture": 57.39768812471942,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Solar Heating": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    }
+   },
+   "O&M": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 387.6251892775053,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 12.324203951988347,
+     "Fuel Refinery": 135.3389070099924,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": 3.1716058922733503,
+     "District Heat": 14.760020669049243,
+     "Electricity": 17.462585936786056,
+     "Fuel Refinery": null,
+     "Industry": 22.142103980568034,
+     "Residential": 36.401910799040444,
+     "Tertiary": 0.8960045179902074,
+     "Transportation": null
+    },
+    "Coal": {
+     "Agriculture": 1.0941886217269576,
+     "District Heat": 0.0,
+     "Electricity": 192.71086727180034,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transportation": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": 0.0,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "District Heating": {
+     "Agriculture": 1.6122907868915095,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 5.768623705287697,
+     "Residential": 56.30568076903999,
+     "Tertiary": 19.68409925459737,
+     "Transportation": null
+    },
+    "Electricity": {
+     "Agriculture": 0.09503114867177462,
+     "District Heat": 3.079513568264792,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.028618390778339345,
+     "Residential": 1.5180600273532063,
+     "Tertiary": 0.34650174719152554,
+     "Transportation": null
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 111.9262910565608,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": 3.085942615380167,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 95.57316309115686,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Natural Gas": {
+     "Agriculture": 4.043833921389632,
+     "District Heat": 0.0,
+     "Electricity": 43.33629270558806,
+     "Fuel Refinery": null,
+     "Industry": 0.18589723924391371,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transportation": null
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Oil": {
+     "Agriculture": 2.9514628391089417,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transportation": null
+    },
+    "Solar Heating": {
+     "Agriculture": 0.0,
+     "District Heat": 0.5777066102027872,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 3.353079036148853,
+     "Tertiary": 0.45600229933430203,
+     "Transportation": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 3.4796099550340607,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 57.96614241201003,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 122.48005338656367,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    }
+   },
+   "capital": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 467.37024117147786,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 2172.0556209507495
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 15.068809259219131,
+     "Fuel Refinery": 87.81298974247065,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": 5.834307822651645,
+     "District Heat": 17.318803497866156,
+     "Electricity": 27.54173120907699,
+     "Fuel Refinery": null,
+     "Industry": 68.96316473433635,
+     "Residential": 98.62143882436395,
+     "Tertiary": 1.6482395184019722,
+     "Transportation": null
+    },
+    "Coal": {
+     "Agriculture": 2.0128078494084876,
+     "District Heat": 0.0,
+     "Electricity": 257.16859019329246,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transportation": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": 0.0,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 0.0
+    },
+    "District Heating": {
+     "Agriculture": 1.8981628502111934,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 7.300805382623375,
+     "Residential": 84.17667137891513,
+     "Tertiary": 23.174247628731727,
+     "Transportation": null
+    },
+    "Electricity": {
+     "Agriculture": 4.350925136450248,
+     "District Heat": 5.452851002298453,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 2.456756499235384,
+     "Residential": 50.43949067208002,
+     "Tertiary": 15.864305364618978,
+     "Transportation": 228.46800242877362
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 20.280340116137076,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 2503.2333698871216
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 0.0
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": 9.295870299145864,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 0.0
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 0.0
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 117.17107199723705,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Natural Gas": {
+     "Agriculture": 0.6232183616000864,
+     "District Heat": 0.0,
+     "Electricity": 95.92120179713021,
+     "Fuel Refinery": null,
+     "Industry": 0.24899690785852047,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transportation": 0.0
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Oil": {
+     "Agriculture": 13.899123310818577,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transportation": null
+    },
+    "Solar Heating": {
+     "Agriculture": 0.0,
+     "District Heat": 17.993878903906975,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 22.618174667426675,
+     "Tertiary": 3.9555987263520276,
+     "Transportation": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 13.105242714670869,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 40.99608664105863,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": 43.69793358040836
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": 245.5614894236056,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transportation": null
+    }
+   },
+   "fuel": {
+    "Biodiesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": -854.9954304489831,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 1598.4264748420167
+    },
+    "Biogas": {
+     "Agriculture": null,
+     "District Heat": 60.051290921260176,
+     "Electricity": 190.1624212506572,
+     "Fuel Refinery": -223.15189675246302,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Energy crops)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Manure)": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Biomass (Straw,woodwaste)": {
+     "Agriculture": 18.50365623246549,
+     "District Heat": 122.9943705754826,
+     "Electricity": -3.9435121834685565e-14,
+     "Fuel Refinery": null,
+     "Industry": 218.46875927493792,
+     "Residential": 233.58707321417242,
+     "Tertiary": 5.227433718677749,
+     "Transport": null
+    },
+    "Cheap coal": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Coal": {
+     "Agriculture": 8.626583093695332,
+     "District Heat": 174.99056804456615,
+     "Electricity": 663.8877582292553,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": null
+    },
+    "Crude Oil": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Diesel": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": 0.0,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 0.0
+    },
+    "District Heating": {
+     "Agriculture": 0.0,
+     "District Heat": -0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": null
+    },
+    "Electricity": {
+     "Agriculture": 0.0,
+     "District Heat": 0.0,
+     "Electricity": -0.0,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": 0.0
+    },
+    "Ethanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": -132.20663117269785,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 377.14962915890567
+    },
+    "Gasoline": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 0.0
+    },
+    "Geothermal": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Hydrogen": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 0.0
+    },
+    "Hydropower": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported electricity": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Imported heat": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Lignite": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Methanol": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": 0.0,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 0.0
+    },
+    "Municipal Waste": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Municipal Waste, RE": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Municipal Waste, non-RE": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Natural Gas": {
+     "Agriculture": 15.198156142951007,
+     "District Heat": 21.36245466150979,
+     "Electricity": 184.91207980589888,
+     "Fuel Refinery": null,
+     "Industry": 5.79720540582145,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": 0.0
+    },
+    "Natural Gas CNG": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Nuclear": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Nuclear - Uranium": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Oil": {
+     "Agriculture": 233.8102582204787,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": null
+    },
+    "Solar Heating": {
+     "Agriculture": 0.0,
+     "District Heat": 0.0,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": 0.0,
+     "Residential": 0.0,
+     "Tertiary": 0.0,
+     "Transport": null
+    },
+    "Solar Power": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Surplus Heat": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Thorium": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "UPGR Biogas": {
+     "Agriculture": null,
+     "District Heat": null,
+     "Electricity": null,
+     "Fuel Refinery": -98.96222905306865,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": 110.50316805799748
+    },
+    "Wave": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    },
+    "Wind": {
+     "Agriculture": null,
+     "District Heat": 0.0,
+     "Electricity": 0.0,
+     "Fuel Refinery": null,
+     "Industry": null,
+     "Residential": null,
+     "Tertiary": null,
+     "Transport": null
+    }
+   }
+  },
+  "el_DH": 0.6209518677289362,
+  "el_FR": -1.8630845824997073,
+  "el_transport": 3.5549436312276304,
+  "fuel_consumption": {
+   "Biodiesel": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -56.25964660271604,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 56.25964660271604
+   },
+   "Biogas": {
+    "Agriculture": null,
+    "DH boilers": 0.0,
+    "Electricity production": 10.824726167781739,
+    "Fuel Refinery": -14.243060747081236,
+    "Heat production": 3.418334579299497,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Biomass (Energy crops)": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": 29.846921306377997,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 29.846921306377997,
+    "Transport": null
+   },
+   "Biomass (Manure)": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": 35.555168548773985,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 35.555168548773985,
+    "Transport": null
+   },
+   "Biomass (Straw,woodwaste)": {
+    "Agriculture": 2.5004940854683095,
+    "DH boilers": 5.474117695210799,
+    "Electricity production": -5.329070518200751e-15,
+    "Fuel Refinery": 100.46365464770723,
+    "Heat production": 11.14674319336793,
+    "Industry": 29.522805307424044,
+    "Residential": 31.56582070461789,
+    "Tertiary": 0.7064099619834795,
+    "Total fuel consumption": 181.38004559577968,
+    "Transport": null
+   },
+   "Coal": {
+    "Agriculture": 0.8626583093695332,
+    "DH boilers": 0.0,
+    "Electricity production": 66.38877582292552,
+    "Fuel Refinery": null,
+    "Heat production": 17.499056804456615,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total fuel consumption": 84.75049093675167,
+    "Transport": null
+   },
+   "Crude Oil": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": 0.0,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Diesel": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -0.0,
+    "Heat production": null,
+    "Industry": 0.0,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "District Heating": {
+    "Agriculture": 2.0338080902164255,
+    "DH boilers": -11.572284807675628,
+    "Electricity production": null,
+    "Fuel Refinery": -14.101179529763808,
+    "Heat production": -67.58801336283236,
+    "Industry": 14.536931737325,
+    "Residential": 51.860427709011084,
+    "Tertiary": 24.830310163719307,
+    "Total fuel consumption": 1.9984014443252818e-14,
+    "Transport": null
+   },
+   "Electricity": {
+    "Agriculture": 9.004409459864187,
+    "DH boilers": 0.6209518677289362,
+    "Electricity production": -99.02487984402543,
+    "Fuel Refinery": -1.8630845824997073,
+    "Heat production": null,
+    "Industry": 25.901447345561493,
+    "Residential": 29.973981644350687,
+    "Tertiary": 31.832230477792223,
+    "Total fuel consumption": 8.881784197001252e-15,
+    "Transport": 3.5549436312276304
+   },
+   "Ethanol": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -14.818088202432413,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 14.818088202432413
+   },
+   "Gasoline": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -0.0,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Geothermal": {
+    "Agriculture": null,
+    "DH boilers": 1.3963541246064106,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 1.3963541246064106,
+    "Transport": null
+   },
+   "Hydrogen": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -0.0,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Hydropower": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Imported electricity": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Imported heat": {
+    "Agriculture": null,
+    "DH boilers": 0.0,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Methanol": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -0.0,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Municipal Waste": {
+    "Agriculture": null,
+    "DH boilers": 0.0,
+    "Electricity production": 7.105427357601002e-15,
+    "Fuel Refinery": null,
+    "Heat production": 32.02401238637109,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 32.0240123863711,
+    "Transport": null
+   },
+   "Natural Gas": {
+    "Agriculture": 1.5351672871667683,
+    "DH boilers": 0.0,
+    "Electricity production": 18.677987859181705,
+    "Fuel Refinery": null,
+    "Heat production": 2.157823703182807,
+    "Industry": 0.5855763036183282,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total fuel consumption": 22.95655515314961,
+    "Transport": 0.0
+   },
+   "Nuclear - Uranium": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Oil": {
+    "Agriculture": 14.892373135062337,
+    "DH boilers": 0.0,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total fuel consumption": 14.892373135062337,
+    "Transport": null
+   },
+   "Solar Heating": {
+    "Agriculture": 0.0,
+    "DH boilers": 3.648673327596551,
+    "Electricity production": null,
+    "Fuel Refinery": null,
+    "Heat production": null,
+    "Industry": 0.0,
+    "Residential": 3.6413428884255645,
+    "Tertiary": 0.6710894638843056,
+    "Total fuel consumption": 7.961105679906421,
+    "Transport": null
+   },
+   "Solar Power": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 2.0296361564590764,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 2.0296361564590764,
+    "Transport": null
+   },
+   "UPGR Biogas": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": null,
+    "Fuel Refinery": -6.074178423646756,
+    "Heat production": null,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": 6.074178423646756
+   },
+   "Wave": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 0.0,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 0.0,
+    "Transport": null
+   },
+   "Wind": {
+    "Agriculture": null,
+    "DH boilers": null,
+    "Electricity production": 51.06137277828624,
+    "Fuel Refinery": null,
+    "Heat production": 0.0,
+    "Industry": null,
+    "Residential": null,
+    "Tertiary": null,
+    "Total fuel consumption": 51.06137277828624,
+    "Transport": null
+   }
+  },
+  "fuel_secondary": {
+   "Biodiesel": {
+    "Fuel consumption in all sectors": 56.25964660271604
+   },
+   "Biogas": {
+    "Fuel consumption in all sectors": 14.243060747081236
+   },
+   "Diesel": {
+    "Fuel consumption in all sectors": 0.0
+   },
+   "Ethanol": {
+    "Fuel consumption in all sectors": 14.818088202432413
+   },
+   "Gasoline": {
+    "Fuel consumption in all sectors": 0.0
+   },
+   "Hydrogen": {
+    "Fuel consumption in all sectors": 0.0
+   },
+   "Methanol": {
+    "Fuel consumption in all sectors": 0.0
+   },
+   "UPGR Biogas": {
+    "Fuel consumption in all sectors": 6.074178423646756
+   }
+  },
+  "gridloss": 7.798075759022495,
+  "heat": {
+   "Biogas Boiler": {
+    "Amount": 0.0
+   },
+   "Coal boiler": {
+    "Amount": 0.0
+   },
+   "Electric Boiler": {
+    "Amount": 0.0
+   },
+   "Geothermal": {
+    "Amount": 1.6337343257895003
+   },
+   "Heat imports": {
+    "Amount": 0.0
+   },
+   "Heatpump": {
+    "Amount": 2.545902657688638
+   },
+   "Municipal waste": {
+    "Amount": 0.0
+   },
+   "Natural gas boiler": {
+    "Amount": 0.0
+   },
+   "Oil boiler": {
+    "Amount": 0.0
+   },
+   "Solar heat": {
+    "Amount": 3.648673327596551
+   },
+   "Wood pellet boiler": {
+    "Amount": 5.786142403837814
+   }
+  },
+  "power": {
+   "Biogas": {
+    "Amount": 5.982085513774119,
+    "CHP heat production": 6.836669158598994,
+    "Total fuel consumption": 14.243060747081236
+   },
+   "Biomass": {
+    "Amount": 3.2046886680932785,
+    "CHP heat production": 8.177993922867605,
+    "Total fuel consumption": 11.146743193367925
+   },
+   "Biomass incl. CO2-storage": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "CCGT": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "Coal Plant": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Coal incl. CO2-storage": {
+    "Amount": 26.278447078364884,
+    "CHP heat production": 34.99811360891323,
+    "Total fuel consumption": 83.88783262738214
+   },
+   "Gasturbine": {
+    "Amount": 0.0,
+    "CHP heat production": 0.0,
+    "Total fuel consumption": 0.0
+   },
+   "Geothermal": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Hydro": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Imported electricity": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Natural gas incl. CO2-storage": {
+    "Amount": 10.789118515914039,
+    "CHP heat production": 4.315647406365614,
+    "Total fuel consumption": 20.835811562364512
+   },
+   "Nuclear": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Photo voltaic": {
+    "Amount": 2.0296361564590764,
+    "CHP heat production": null,
+    "Total fuel consumption": 2.0296361564590764
+   },
+   "Waste incineration": {
+    "Amount": 7.4776068922176515,
+    "CHP heat production": 25.186885741880868,
+    "Total fuel consumption": 32.0240123863711
+   },
+   "Wave power": {
+    "Amount": 0.0,
+    "CHP heat production": null,
+    "Total fuel consumption": 0.0
+   },
+   "Wind, offshore": {
+    "Amount": 24.996571611127575,
+    "CHP heat production": null,
+    "Total fuel consumption": 24.996571611127575
+   },
+   "Wind, onshore": {
+    "Amount": 26.064801167158667,
+    "CHP heat production": null,
+    "Total fuel consumption": 26.064801167158667
+   }
+  },
+  "primary_fuel": {
+   "Bioenergy": {
+    "Agriculture": 2.5004940854683095,
+    "DH boilers": 5.474117695210799,
+    "Electricity production": -5.329070518200751e-15,
+    "Fuel Refinery": 165.86574450285923,
+    "Heat production": 11.14674319336793,
+    "Industry": 29.522805307424044,
+    "Residential": 31.56582070461789,
+    "Tertiary": 0.7064099619834795,
+    "Total primary fuel consumption": 246.78213545093166,
+    "Transport": 0.0
+   },
+   "Coal": {
+    "Agriculture": 0.8626583093695332,
+    "DH boilers": 0.0,
+    "Electricity production": 66.38877582292552,
+    "Fuel Refinery": 0.0,
+    "Heat production": 17.499056804456615,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 84.75049093675167,
+    "Transport": 0.0
+   },
+   "District Heating": {
+    "Agriculture": 2.0338080902164255,
+    "DH boilers": -11.572284807675628,
+    "Electricity production": 0.0,
+    "Fuel Refinery": -14.101179529763808,
+    "Heat production": -67.58801336283236,
+    "Industry": 14.536931737325,
+    "Residential": 51.860427709011084,
+    "Tertiary": 24.830310163719307,
+    "Total primary fuel consumption": 1.9984014443252818e-14,
+    "Transport": 0.0
+   },
+   "Electricity": {
+    "Agriculture": 9.004409459864187,
+    "DH boilers": 0.6209518677289362,
+    "Electricity production": -99.02487984402543,
+    "Fuel Refinery": -1.8630845824997073,
+    "Heat production": 0.0,
+    "Industry": 25.901447345561493,
+    "Residential": 29.973981644350687,
+    "Tertiary": 31.832230477792223,
+    "Total primary fuel consumption": 8.881784197001252e-15,
+    "Transport": 3.5549436312276304
+   },
+   "Geothermal": {
+    "Agriculture": 0.0,
+    "DH boilers": 1.3963541246064106,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 1.3963541246064106,
+    "Transport": 0.0
+   },
+   "Hydro": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Natural Gas": {
+    "Agriculture": 1.5351672871667683,
+    "DH boilers": 0.0,
+    "Electricity production": 18.677987859181705,
+    "Fuel Refinery": 0.0,
+    "Heat production": 2.157823703182807,
+    "Industry": 0.5855763036183282,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 22.95655515314961,
+    "Transport": 0.0
+   },
+   "Nuclear": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Oil": {
+    "Agriculture": 14.892373135062337,
+    "DH boilers": 0.0,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 14.892373135062337,
+    "Transport": 0.0
+   },
+   "Solar": {
+    "Agriculture": 0.0,
+    "DH boilers": 3.648673327596551,
+    "Electricity production": 2.0296361564590764,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 3.6413428884255645,
+    "Tertiary": 0.6710894638843056,
+    "Total primary fuel consumption": 9.990741836365498,
+    "Transport": 0.0
+   },
+   "Waste": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 7.105427357601002e-15,
+    "Fuel Refinery": 0.0,
+    "Heat production": 32.02401238637109,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 32.0240123863711,
+    "Transport": 0.0
+   },
+   "Wave": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 0.0,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 0.0,
+    "Transport": 0.0
+   },
+   "Wind": {
+    "Agriculture": 0.0,
+    "DH boilers": 0.0,
+    "Electricity production": 51.06137277828624,
+    "Fuel Refinery": 0.0,
+    "Heat production": 0.0,
+    "Industry": 0.0,
+    "Residential": 0.0,
+    "Tertiary": 0.0,
+    "Total primary fuel consumption": 51.06137277828624,
+    "Transport": 0.0
+   }
+  },
+  "total_DH_demand": 93.12976255353881,
+  "total_electricity": 106.82295560304793,
+  "total_electricity_demand": 106.82295560310929,
+  "transport_consumption": {
+   "Agriculture": {
+    "Energy consumption": 0.0
+   },
+   "Air transport": {
+    "Energy consumption": 213.4098539756797
+   },
+   "Aviation & ferries": {
+    "Energy consumption": 27776.49696186856
+   },
+   "Bike": {
+    "Energy consumption": 0.0
+   },
+   "Bus": {
+    "Energy consumption": 10804.799184084266
+   },
+   "Car": {
+    "Energy consumption": 27434.949084493765
+   },
+   "Fishery": {
+    "Energy consumption": 6401.584533938629
+   },
+   "Shipping": {
+    "Energy consumption": 558.1491328143692
+   },
+   "Train": {
+    "Energy consumption": 2907.511771594154
+   },
+   "Train Goods": {
+    "Energy consumption": 19.446110631009137
+   },
+   "Trucks and cargo vans": {
+    "Energy consumption": 4590.5102266224085
+   }
+  },
+  "transport_fuels": {
+   "Biodiesel": {
+    "Share of total transport consumption": 0.6888476651170651,
+    "Total transport consumption": 56259.64660271604
+   },
+   "Diesel": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "Electricity": {
+    "Share of total transport consumption": 0.05281888452467223,
+    "Total transport consumption": 3554.9436312276302
+   },
+   "Ethanol": {
+    "Share of total transport consumption": 0.18254418808460313,
+    "Total transport consumption": 14818.088202432413
+   },
+   "Gasoline": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "Hydrogen": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "Methanol": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "Natural Gas": {
+    "Share of total transport consumption": 0.0,
+    "Total transport consumption": 0.0
+   },
+   "UPGR Biogas": {
+    "Share of total transport consumption": 0.07578926227365945,
+    "Total transport consumption": 6074.178423646756
+   }
+  }
+ }
+}

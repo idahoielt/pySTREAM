@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use pySTREAM, please cite it as below."
+type: software
+title: "pySTREAM: an energy scenario modelling tool"
+abstract: >-
+  pySTREAM is a Python version of the Excel energy system model STREAM
+  (https://www.esymodels.man.dtu.dk/stream), with a
+  desktop window for building energy scenarios and comparing their energy
+  balance, CO2 emissions, costs and hourly electricity time series with a base
+  year. It was created as a Bachelor's thesis project at the Technical
+  University of Denmark (DTU) in 2023.
+authors:
+  - family-names: Hoielt
+    given-names: Ida Cecilie
+    affiliation: Technical University of Denmark (DTU)
+license: MIT
+keywords:
+  - energy system model
+  - energy scenarios
+  - STREAM
+  - Python
