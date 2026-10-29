@@ -9,7 +9,7 @@ pySTREAM is a Python version of the Excel model
 [STREAM](https://www.esymodels.man.dtu.dk/stream) and gives the same results (see
 [docs/comparison-with-excel-model.md](docs/comparison-with-excel-model.md)). It was
 created by Ida Cecilie Hoielt as a Bachelor's thesis project at DTU (Technical
-University of Denmark) in 2023, updated as part of a special course in 2024, and in 2026 reviewed with assistance from Claude to fix bugs and add some QoL features.
+University of Denmark) in 2023 with Tilman Weckesser as supervisor. It was updated as part of a special course in 2024, and in 2026 reviewed with assistance from Claude to fix bugs and add some QoL features.
 
 ## Install
 
