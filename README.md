@@ -60,6 +60,20 @@ script downloaded from the internet the first time:
 On macOS 14 (Sonoma) or older you can instead right-click (or Ctrl-click) the script,
 choose **Open** and confirm. This can happen for both scripts, the first time you open each.
 
+**If it still does not work:**
+
+- **A message about the archive or "Unable to expand" (when unzipping):** the ZIP file
+  was not unzipped completely, for example because the download did not finish, or
+  because Safari had already unzipped it and you double-clicked it again. Delete the ZIP
+  file and the pySTREAM folder, download pySTREAM again and use the `pySTREAM-main`
+  folder that Safari makes in `Downloads` (move it to `Documents` if you like).
+- **The script still does not open, or a message says "permission denied" or "you do not
+  have appropriate access privileges":** run the script from Terminal instead:
+  1. Open **Terminal** (press Cmd+Space, type `Terminal` and press Enter).
+  2. Type `bash` followed by a space. Drag `install_mac.command` from the pySTREAM folder
+     into the Terminal window and press Enter. The installation then runs as in step 4.
+  3. Start pySTREAM the same way, with `start_mac.command` instead of `install_mac.command`.
+
 ## Install with conda (optional)
 
 If you already use Anaconda or Miniconda, you can install pySTREAM with conda instead of

@@ -180,6 +180,9 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- README, macOS: what to do if a script still does not open after "Open Anyway"
+  (unzipping went wrong: download again; still blocked or "permission denied":
+  run the script with `bash` in Terminal).
 - The README has separate step-by-step install instructions for Windows and
   macOS (including how to allow the scripts on macOS 15 and newer), and links to
   the manual, the data, the comparison with Excel STREAM and the developer notes.
