@@ -180,6 +180,10 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- pySTREAM uses more of the screen: the empty margins at the right and bottom
+  of the 1920 x 1080 design no longer count when the layout is fitted to the
+  screen (it fits the 1880 x 1010 pixels that have content). On a 1920 x 1080
+  screen with a taskbar, everything is about 6 % larger.
 - pySTREAM adapts to the screen it is started on: the whole layout, text,
   tables and plots are scaled to fill it, from small laptops to 4K screens
   (the layout is designed for 1920 x 1080 pixels). On Windows with display

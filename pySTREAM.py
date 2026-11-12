@@ -233,12 +233,15 @@ c_accent = '#F1D89C'
 
 #Open program window
 #==============================================================================
-#The layout is designed for a screen of 1920 x 1080 pixels. When pySTREAM starts, the layout is scaled by SCALE so it
-#fills the screen it is shown on (ww x wh pixels): positions and sizes are fractions of ww and wh, text is scaled with
+#The layout is designed for a screen of 1920 x 1080 pixels, but the pages only use the top left USED_WIDTH x USED_HEIGHT
+#pixels of it; the rest is empty. When pySTREAM starts, the layout is scaled by SCALE so that this used part fills the
+#screen it is shown on. The layout is then ww x wh pixels: positions and sizes are fractions of ww and wh, text is scaled with
 #'tk scaling' (below), and the few sizes given in pixels use px(). On very small screens the layout keeps a readable
 #minimum size and scrollbars appear. The layout sits in a scrollable area of the window (root).
 DESIGN_WIDTH = 1920
 DESIGN_HEIGHT = 1080
+USED_WIDTH = 1880  #the pages end at about 1862 pixels
+USED_HEIGHT = 1010 #the lowest button in the menu ends at about 993 pixels
 MIN_SCALE = 0.6 #smaller text is hard to read
 
 #On Windows with display scaling above 100 %, Windows would otherwise enlarge the whole window as a picture (blurry
@@ -266,14 +269,16 @@ def available_size():
     return root.winfo_screenwidth(), root.winfo_screenheight() - 100 #leave room for the taskbar and title bar
 
 def layout_scale(width, height):
-    """How much the 1920 x 1080 layout is enlarged (> 1) or reduced (< 1) to fit a space of width x height pixels."""
-    return max(MIN_SCALE, min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT))
+    """How much the 1920 x 1080 layout is enlarged (> 1) or reduced (< 1) so its used part fits a space of width x height pixels."""
+    return max(MIN_SCALE, min(width / USED_WIDTH, height / USED_HEIGHT))
 
 SCALE = layout_scale(*available_size())
 ww = int(DESIGN_WIDTH * SCALE)  #layout width
 wh = int(DESIGN_HEIGHT * SCALE) #layout height
-if root.state() != 'zoomed': #the window could not be made to fill the screen: give it the size of the layout
-    root.geometry('%dx%d+0+0' % (min(ww, root.winfo_screenwidth()), min(wh, root.winfo_screenheight() - 100)))
+used_width = round(USED_WIDTH * SCALE)   #the part of the layout that has content
+used_height = round(USED_HEIGHT * SCALE)
+if root.state() != 'zoomed': #the window could not be made to fill the screen: give it the size of the used part of the layout
+    root.geometry('%dx%d+0+0' % (min(used_width, root.winfo_screenwidth()), min(used_height, root.winfo_screenheight() - 100)))
 
 def px(pixels):
     """A size in pixels of the 1920 x 1080 design, scaled to this screen."""
@@ -288,7 +293,7 @@ if sys.platform == 'darwin':
     plt.rcParams['figure.dpi'] = 100 * SCALE
 plt.rcParams['savefig.dpi'] = 100
 
-scroll_canvas = tk.Canvas(root, bg=c_white, highlightthickness=0, scrollregion=(0, 0, ww, wh), xscrollincrement=40, yscrollincrement=40)
+scroll_canvas = tk.Canvas(root, bg=c_white, highlightthickness=0, scrollregion=(0, 0, used_width, used_height), xscrollincrement=40, yscrollincrement=40)
 scroll_x = ttk.Scrollbar(root, orient='horizontal', command=scroll_canvas.xview)
 scroll_y = ttk.Scrollbar(root, orient='vertical', command=scroll_canvas.yview)
 scroll_canvas.configure(xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
@@ -301,14 +306,14 @@ window = tk.Frame(scroll_canvas, width=ww, height=wh)
 scroll_canvas.create_window(0, 0, window=window, anchor='nw')
 
 def show_scrollbars_when_needed(event):
-    """Show the scrollbars only when the window is smaller than the layout."""
+    """Show the scrollbars only when the window is smaller than the used part of the layout."""
     if event.widget is not root:
         return
-    if root.winfo_width() < ww:
+    if root.winfo_width() < used_width:
         scroll_x.grid(row=1, column=0, sticky='ew')
     else:
         scroll_x.grid_remove()
-    if root.winfo_height() < wh:
+    if root.winfo_height() < used_height:
         scroll_y.grid(row=0, column=1, sticky='ns')
     else:
         scroll_y.grid_remove()
