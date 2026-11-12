@@ -21,7 +21,7 @@ import openpyxl
 TESTS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(TESTS_DIR)
 EXPECTED_DIR = os.path.join(TESTS_DIR, 'expected')
-PROGRAM_FILES = ['Backend.py', 'Time_Series.py', 'pySTREAM.py', 'data']
+PROGRAM_FILES = ['program', 'data']
 
 
 # Scenario definitions
@@ -137,7 +137,7 @@ def make_program_copy(scenario=None):
     for name in PROGRAM_FILES:
         source = os.path.join(PROJECT_DIR, name)
         if os.path.isdir(source):
-            shutil.copytree(source, os.path.join(folder, name), ignore=shutil.ignore_patterns('Scenario Data.xlsx', '~$*'))
+            shutil.copytree(source, os.path.join(folder, name), ignore=shutil.ignore_patterns('Scenario Data.xlsx', '~$*', '__pycache__'))
         else:
             shutil.copy2(source, folder)
     path = os.path.join(folder, 'data', 'Scenario Data.xlsx')

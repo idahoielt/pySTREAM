@@ -4,8 +4,9 @@ import pandas as pd
 import numpy as np
 import numpy_financial as npf
 
-#Folder that contains the program files, so the data is found no matter which folder pySTREAM is started from
-PROGRAM_DIR = os.path.dirname(os.path.abspath(__file__))
+#The pySTREAM folder (this file is in its 'program' folder), so the data is found no matter which folder
+#pySTREAM is started from. The data, figures and error log are in the pySTREAM folder, where students look for them.
+PROGRAM_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROGRAM_DIR, 'data')
 
 

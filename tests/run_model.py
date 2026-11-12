@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 warnings.simplefilter('ignore')
 os.chdir(args.cwd or args.program_dir)
-sys.path.insert(0, args.program_dir)
+sys.path.insert(0, os.path.join(args.program_dir, 'program'))
 
 import Backend
 

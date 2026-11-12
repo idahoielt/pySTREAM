@@ -26,7 +26,7 @@ warnings.simplefilter('ignore')
 # Normally the GUI is started from the program folder; this check starts it from somewhere else
 start_folder = tempfile.mkdtemp() if check == 'start_from_other_folder' else program_dir
 os.chdir(start_folder)
-sys.path.insert(0, program_dir)
+sys.path.insert(0, os.path.join(program_dir, 'program'))
 
 messages = []
 for kind in ('showerror', 'showinfo', 'showwarning'):

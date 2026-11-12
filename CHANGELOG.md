@@ -180,6 +180,8 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- The Python files are in the `program` folder, so the main folder has fewer
+  files; the data, figures and error log stay in the main pySTREAM folder.
 - pySTREAM can also be installed in a conda environment (`environment.yml`,
   see "Using conda" in the README). The install scripts are unchanged.
 - macOS: `start_mac.command` starts `pySTREAM_mac.py`, a version of the window

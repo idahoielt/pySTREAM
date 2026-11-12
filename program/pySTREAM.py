@@ -14,10 +14,6 @@ import openpyxl
 from PIL import Image, ImageTk
 import plotly.io as pio
 pio.renderers.default='browser'
-import matplotlib
-#Plots are drawn with Tk, like the rest of the window. On macOS, matplotlib would otherwise use Apple's own
-#window system ('macosx'), and two window systems in one program can freeze or crash it. (Windows already uses Tk.)
-matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import plotly.graph_objects as go
@@ -30,7 +26,7 @@ from datetime import datetime
 
 #Errors are shown in a window in plain language and the details are saved in a log file,
 #instead of only being printed in the terminal (which students often do not see)
-ERROR_LOG = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pySTREAM error log.txt')
+ERROR_LOG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'pySTREAM error log.txt') #in the pySTREAM folder
 
 def friendly_error_message(error):
     """Explain an error in plain language."""
@@ -114,7 +110,7 @@ class TreeviewEdit(ttk.Treeview):
         column_box = self.bbox(selected_iid, column)
         
         #Create entry widget that covers the cell that was clicked
-        entry_edit = ttk.Entry(self.parent_frame, font=font_table) #the same text size as the cell, on every screen
+        entry_edit = ttk.Entry(self.parent_frame)
         
         #Record the column index and item iid
         entry_edit.editing_column_index = column_index
@@ -170,35 +166,6 @@ class TreeviewEdit(ttk.Treeview):
     #When user clicks out of editing cell without saving by pressing enter the new value entered is forgotten
     def on_focus_out(self, event):
         event.widget.destroy()
-
-class FlatButton(tk.Label):
-    """A button that keeps its colours on every system. On macOS, tk.Button ignores the background colour and
-    is drawn as a light grey Mac button, so the white text of most pySTREAM buttons could not be read.
-    It is used like tk.Button: command runs when the button is clicked (or invoke() is called), and
-    activebackground/activeforeground are the colours while the mouse button is held down."""
-    def __init__(self, master=None, command=None, **options):
-        #the space around the text that a Windows button has (it matters for buttons sized by their text)
-        options.setdefault('padx', px(3))
-        options.setdefault('pady', px(4))
-        super().__init__(master, **options)
-        self.command = command
-        self.bind('<ButtonPress-1>', lambda event: self.config(state='active'))
-        self.bind('<ButtonRelease-1>', self.on_release)
-
-    def on_release(self, event):
-        self.config(state='normal')
-        #like a real button, letting go of the mouse outside the button does not click it
-        if 0 <= event.x < self.winfo_width() and 0 <= event.y < self.winfo_height():
-            self.invoke()
-
-    def invoke(self):
-        if self.command is None:
-            return None
-        try:
-            return self.command()
-        except Exception:
-            #as with tk.Button, errors are shown in pySTREAM's error window (see handle_error)
-            self._root().report_callback_exception(*sys.exc_info())
 
 GROUP = ('group',) #tag of the rows that name the rows below them (Person, Goods, ...)
 
@@ -317,19 +284,9 @@ def px(pixels):
     """A size in pixels of the 1920 x 1080 design, scaled to this screen."""
     return max(1, round(pixels * SCALE))
 
-#Text sizes are given in points (with pt() below). The design uses 96 pixels per inch (72 points), the Windows
-#standard. On Windows and Linux, 'tk scaling' scales all text in the same way as the layout. Tk on macOS ignores
-#'tk scaling' (one point is always one screen point there), so on macOS pt() scales the sizes themselves instead.
-if sys.platform == 'darwin':
-    FONT_SCALE = SCALE * 96 / 72
-else:
-    FONT_SCALE = 1
-    root.tk.call('tk', 'scaling', SCALE * 96 / 72)
-
-def pt(size):
-    """A text size in points of the 1920 x 1080 design, for this screen."""
-    return max(1, round(size * FONT_SCALE))
-
+#Text sizes are given in points. The design uses 96 pixels per inch (72 points), the Windows standard;
+#scaling it here scales all text in the same way as the layout.
+root.tk.call('tk', 'scaling', SCALE * 96 / 72)
 #Plots in the window are scaled in the same way: on Windows and Linux matplotlib does this itself (it follows
 #'tk scaling'), on macOS it is done here. The matplotlib plots saved in the figures folder keep the same size on every screen.
 if sys.platform == 'darwin':
@@ -389,12 +346,12 @@ root.protocol("WM_DELETE_WINDOW", quit_me)
 window.configure(bg=c_white)
 
 #Show that pySTREAM is starting, until the window is ready (see the end of this file)
-starting_label = tk.Label(root, text="Starting pySTREAM...\nThis can take up to a minute.", font=('Arial', pt(16)), bg=c_white, fg=c_dark)
+starting_label = tk.Label(root, text="Starting pySTREAM...\nThis can take up to a minute.", font=('Arial', 16), bg=c_white, fg=c_dark)
 starting_label.place(relx=0.5, rely=0.5, anchor='center')
 root.update()
 
 #Long calculations show a message and a busy cursor while they run (the window cannot react in the meantime)
-busy_label = tk.Label(root, bg=c_accent, fg=c_dark, font=('Arial', pt(14), 'bold'))
+busy_label = tk.Label(root, bg=c_accent, fg=c_dark, font=('Arial', 14, 'bold'))
 def run_while_busy(action, message):
     busy_label.config(text=message)
     busy_label.place(relx=0.5, rely=0.5, anchor='center', width=ww*0.3, height=wh*0.06)
@@ -408,15 +365,15 @@ def run_while_busy(action, message):
         root.config(cursor='')
 
 #fonts
-font_header = font.Font(family='Nueva Std Cond', size=pt(24), weight='bold')
-font_subheader= font.Font(family='Nueva Std Cond', size=pt(20), weight='bold')
-font_subsubheader= font.Font(family='Nueva Std Cond', size=pt(17), weight='bold')
-font_subsubsubheader = font.Font(family='Nueva Std Cond', size=pt(14), weight='bold')
-font_button = font.Font(family='Nueva Std Cond', size=pt(12), weight='bold')
-font_text = font.Font(family='Nueva Std Cond', size=pt(10))
-font_text_bold = font.Font(family='Nueva Std Cond', size=pt(10), weight='bold')
-font_table_heading = ('Arial', pt(9), 'bold')
-font_table = ('Arial', pt(9))
+font_header = font.Font(family='Nueva Std Cond', size='24', weight='bold')
+font_subheader= font.Font(family='Nueva Std Cond', size='20', weight='bold')
+font_subsubheader= font.Font(family='Nueva Std Cond', size='17', weight='bold')
+font_subsubsubheader = font.Font(family='Nueva Std Cond', size='14', weight='bold')
+font_button = font.Font(family='Nueva Std Cond', size='12', weight='bold')
+font_text = font.Font(family='Nueva Std Cond', size='10')
+font_text_bold = font.Font(family='Nueva Std Cond', size='10', weight='bold')
+font_table_heading = ('Arial', 9, 'bold')
+font_table = ('Arial', 9)
 
 #table style
 style = ttk.Style()
@@ -424,8 +381,8 @@ style.theme_use('default')
 style.configure('Treeview', background = c_white, foreground = c_black, rowheight = px(23), fieldbackground = c_white, relief = 'flat', borderwidth = 0, font = font_table)  
 style.map('Treeview', background=[('selected', c_midlight)], foreground=[('selected', c_black)])
 style.layout('Treeview', [('Treeview.treearea', {'sticky': 'nswe'})]) #tables without a border (it showed as a white outline around the headings)
-style.configure('Amounts.Treeview', background = c_lightish, fieldbackground = c_lightish, font = ('Arial', pt(9), 'italic')) #read-only amounts next to the production shares
-style.configure('Sums.Treeview', font = ('Arial', pt(9), 'italic')) #read-only sums next to the transport fuel shares
+style.configure('Amounts.Treeview', background = c_lightish, fieldbackground = c_lightish, font = ('Arial', 9, 'italic')) #read-only amounts next to the production shares
+style.configure('Sums.Treeview', font = ('Arial', 9, 'italic')) #read-only sums next to the transport fuel shares
 style.configure('Treeview.Heading', background = c_mid, foreground = c_white, relief = 'flat', font=font_table_heading, padding = (px(3), 0)) #heading text starts where the cell text below it starts
 style.map('Treeview.Heading', background = [('active', c_mid)])
 style.configure('Treeview.Cell', padding = (px(4), 0)) #space between the left edge of a cell and its text, as in the headings
@@ -456,7 +413,7 @@ def graphs_button_action():
     select_frame("graphs_frame")
 
 #graps button setup
-graphs_button = FlatButton(menu_frame, text="Graphs", command=graphs_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+graphs_button = tk.Button(menu_frame, text="Graphs", command=graphs_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 graphs_button.place(x=ww*0.014, y=wh*0.08*1, width=button_width, height=button_height)
 #graphs_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -465,7 +422,7 @@ def consumption_button_action():
     select_frame("consumption_frame")
     
 #consumption button setup
-consumption_button = FlatButton(menu_frame, text="Edit consumption", command=consumption_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+consumption_button = tk.Button(menu_frame, text="Edit consumption", command=consumption_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 consumption_button.place(x=ww*0.014, y=wh*0.08*2, width=button_width, height=button_height)
 #consumption_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -474,7 +431,7 @@ def production_button_action():
     select_frame("production_frame")
 
 #production button setup
-production_button = FlatButton(menu_frame, text="Edit production", command=production_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+production_button = tk.Button(menu_frame, text="Edit production", command=production_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 production_button.place(x=ww*0.014, y=wh*0.08*3, width=button_width, height=button_height)
 #production_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -483,7 +440,7 @@ def by_button_action():
     select_frame("by_frame")
 
 #base year button setup
-by_button = FlatButton(menu_frame, text="Base year data", command=by_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+by_button = tk.Button(menu_frame, text="Base year data", command=by_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 by_button.place(x=ww*0.014, y=wh*0.08*4, width=button_width, height=button_height)
 #by_button.config(width=button_width, height=button_height, font=font_button)  
     
@@ -492,7 +449,7 @@ def scenario_button_action():
     select_frame("scenario_frame")
 
 #scenario button setup
-scenario_button = FlatButton(menu_frame, text="Scenario data", command=scenario_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+scenario_button = tk.Button(menu_frame, text="Scenario data", command=scenario_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 scenario_button.place(x=ww*0.014, y=wh*0.08*5, width=button_width, height=button_height)
 #scenario_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -501,7 +458,7 @@ def transport_button_action():
     select_frame("transport_frame")
     
 #transport button setup
-transport_button=FlatButton(menu_frame, text="Transport data", command=transport_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+transport_button=tk.Button(menu_frame, text="Transport data", command=transport_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 transport_button.place(x=ww*0.014, y=wh*0.08*6, width=button_width, height=button_height)
 #transport_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -510,7 +467,7 @@ def CO2_button_action():
     select_frame("CO2_frame")
     
 #CO2 button setup
-CO2_button = FlatButton(menu_frame, text="CO2 emissions", command=CO2_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+CO2_button = tk.Button(menu_frame, text="CO2 emissions", command=CO2_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 CO2_button.place(x=ww*0.014, y=wh*0.08*7, width=button_width, height=button_height)
 #CO2_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -520,7 +477,7 @@ def economy_button_action():
     select_frame("economy_frame")
     
 #Economy button setup
-economy_button = FlatButton(menu_frame, text="Economy", command=economy_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+economy_button = tk.Button(menu_frame, text="Economy", command=economy_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 economy_button.place(x=ww*0.014, y=wh*0.08*8, width=button_width, height=button_height)
 #economy_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -529,7 +486,7 @@ def timeSeries_button_action():
     select_frame("timeSeries_frame")
 
 #Time series button setup
-timeSeries_button = FlatButton(menu_frame, text="Time series", command=timeSeries_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
+timeSeries_button = tk.Button(menu_frame, text="Time series", command=timeSeries_button_action, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_button)
 timeSeries_button.place(x=ww*0.014, y=wh*0.08*9, width=button_width, height=button_height)
 #timeSeries_button.config(width=button_width, height=button_height, font=font_button)
 
@@ -917,11 +874,11 @@ def show_sankey(fig, file_name, frame):
         fig.show()
     if save_sankey_image(fig, file_name):
         sankey_image = ImageTk.PhotoImage(Image.open(figure_path(file_name)))
-        sankey_button = FlatButton(frame, image=sankey_image, command=sankey_web, bd=0)
+        sankey_button = tk.Button(frame, image=sankey_image, command=sankey_web, bd=0)
         sankey_button.image = sankey_image
         tip = "Tip: Click the image to open the graph in interactive mode in your browser!"
     else:
-        sankey_button = FlatButton(frame, text="Open the energy flow (Sankey) diagram in your browser", command=sankey_web, bd=0, bg=c_lightish, fg=c_dark, activebackground=c_dark, activeforeground=c_white, font=font_button)
+        sankey_button = tk.Button(frame, text="Open the energy flow (Sankey) diagram in your browser", command=sankey_web, bd=0, bg=c_lightish, fg=c_dark, activebackground=c_dark, activeforeground=c_white, font=font_button)
         tip = "The diagram could not be shown here (this needs Google Chrome), but it can be opened in your browser."
     sankey_button.place(x=ww*0.005, y=wh*0.04, width = graph_width, height = graph_height)
     sankey_tip = tk.Label(frame, text = tip, font=font_text, bd=0, bg=c_light, fg=c_dark)
@@ -944,7 +901,7 @@ def button_sankey_action():
     sankey_SC()
     sankey_BY()
 
-button_sankey = FlatButton(graphs_frame, command=button_sankey_action, text='Sankey', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_sankey = tk.Button(graphs_frame, command=button_sankey_action, text='Sankey', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_sankey.place(x=ww*0.1*0, y=wh*0.09, height=wh*0.07, width=ww*0.09)
 #------------------------------------------------------------------------------
 
@@ -964,7 +921,7 @@ def button_FEC_stackedBar_action():
     FEC_stackedBar(df_FEC_BY, str(Base_Year), graphs_by_frame)
     FEC_stackedBar(df_FEC_SC, str(Scenario_Year), graphs_sc_frame)
     
-button_FEC_stackedBar = FlatButton(graphs_frame, wraplength=ww*0.08, command=button_FEC_stackedBar_action, text='Sectors Technologies', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_FEC_stackedBar = tk.Button(graphs_frame, wraplength=ww*0.08, command=button_FEC_stackedBar_action, text='Sectors Technologies', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_FEC_stackedBar.place(x=ww*0.1*1, y=wh*0.09, height=wh*0.07, width=ww*0.09)
 #------------------------------------------------------------------------------
 
@@ -986,7 +943,7 @@ def button_FEC_bar_action():
     FEC_bar(df_FEC_BY, df_transport_consumption_BY, str(Base_Year), graphs_by_frame)
     FEC_bar(df_FEC_SC, df_transport_consumption_SC, str(Scenario_Year), graphs_sc_frame)
     
-button_FEC_stackedBar = FlatButton(graphs_frame, wraplength=ww*0.08, command=button_FEC_bar_action, text='All sectors Consumption', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_FEC_stackedBar = tk.Button(graphs_frame, wraplength=ww*0.08, command=button_FEC_bar_action, text='All sectors Consumption', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_FEC_stackedBar.place(x=ww*0.1*2, y=wh*0.09, height=wh*0.07, width=ww*0.09)
 #------------------------------------------------------------------------------
 
@@ -1015,7 +972,7 @@ def button_CO2_bar_action():
     CO2_bar(df_fuelType_CO2_BY, str(Base_Year), graphs_by_frame)
     CO2_bar(df_fuelType_CO2_SC, str(Scenario_Year), graphs_sc_frame)
     
-button_CO2_bar = FlatButton(graphs_frame, wraplength=ww*0.08, command=button_CO2_bar_action, text='CO2', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_CO2_bar = tk.Button(graphs_frame, wraplength=ww*0.08, command=button_CO2_bar_action, text='CO2', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_CO2_bar.place(x=ww*0.1*3, y=wh*0.09, height=wh*0.07, width=ww*0.09)
 #------------------------------------------------------------------------------
 
@@ -1036,7 +993,7 @@ def button_electricity_bar_action():
     electricity_bar(df_Power_BY['Amount'], str(Base_Year), graphs_by_frame)
     electricity_bar(df_Power_SC['Amount'], str(Scenario_Year), graphs_sc_frame)
     
-button_electricity_bar = FlatButton(graphs_frame, wraplength=ww*0.08, command=button_electricity_bar_action, text='Electricity', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_electricity_bar = tk.Button(graphs_frame, wraplength=ww*0.08, command=button_electricity_bar_action, text='Electricity', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_electricity_bar.place(x=ww*0.1*4, y=wh*0.09, height=wh*0.07, width=ww*0.09)
 
 #------------------------------------------------------------------------------
@@ -1058,7 +1015,7 @@ def button_heat_bar_action():
     heat_bar(df_Heat_BY['Amount'], str(Base_Year), graphs_by_frame)
     heat_bar(df_Heat_SC['Amount'], str(Scenario_Year), graphs_sc_frame)
     
-button_heat_bar = FlatButton(graphs_frame, wraplength=ww*0.08, command=button_heat_bar_action, text='District heat', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_heat_bar = tk.Button(graphs_frame, wraplength=ww*0.08, command=button_heat_bar_action, text='District heat', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_heat_bar.place(x=ww*0.1*5, y=wh*0.09, height=wh*0.07, width=ww*0.09)
 
 #------------------------------------------------------------------------------
@@ -1080,7 +1037,7 @@ def button_primaryFuels_bar_action():
     primaryFuels_bar(df_fuelType_consumption_BY['Total primary fuel consumption'], str(Base_Year), graphs_by_frame)
     primaryFuels_bar(df_fuelType_consumption_SC['Total primary fuel consumption'], str(Scenario_Year), graphs_sc_frame)
     
-button_primaryFuels_bar = FlatButton(graphs_frame, wraplength=ww*0.08, command=button_primaryFuels_bar_action, text='Fuel consumption', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
+button_primaryFuels_bar = tk.Button(graphs_frame, wraplength=ww*0.08, command=button_primaryFuels_bar_action, text='Fuel consumption', bd=0, bg=c_lightish, fg=c_dark, font=font_button, activebackground=c_dark, activeforeground=c_white)
 button_primaryFuels_bar.place(x=ww*0.1*6, y=wh*0.09, height=wh*0.07, width=ww*0.0920)
 
 #------------------------------------------------------------------------------
@@ -1156,7 +1113,7 @@ def heatConsumption_table():
         #Update sums
         heat_sums()
        
-    save_heat_button = FlatButton(heat_frame, text="Save heat changes" , command=save_heat_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+    save_heat_button = tk.Button(heat_frame, text="Save heat changes" , command=save_heat_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
     save_heat_button.place(x=ww*0.344, y=wh*0.245, height=wh*0.021, width=ww*0.08)
 
 #Creating heat "table" with relevant sums
@@ -1168,7 +1125,7 @@ def heat_sums():
     label_heat_sum_value = [0, 0, 0, 0]
     
     for i in range(len(label_heat_sum_value)):
-        label_heat_sum_value[i] = tk.LabelFrame(heat_frame, text="{:.2%}".format(heat_sums[i]), font=('Arial', pt(9),  'italic'), labelanchor='sw', bd=0, bg=c_white, fg=c_black)
+        label_heat_sum_value[i] = tk.LabelFrame(heat_frame, text="{:.2%}".format(heat_sums[i]), font=('Arial', 9,  'italic'), labelanchor='sw', bd=0, bg=c_white, fg=c_black)
         label_heat_sum_value[i].place(x=ww*0.166+int(ww*0.065)*i, y=wh*0.27, height=wh*0.021, width=int(ww*0.065))
    
     
@@ -1243,7 +1200,7 @@ def transportFuels_table():
         #Update sums
         transportFuels_sums()
        
-    save_transportFuels_button = FlatButton(transportFuels_frame, text="Save transport fuel changes" , command=save_transportFuels_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+    save_transportFuels_button = tk.Button(transportFuels_frame, text="Save transport fuel changes" , command=save_transportFuels_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
     save_transportFuels_button.place(x=ww*0.395, y=wh*0.355, height=wh*0.021, width=ww*0.13)
 
 
@@ -1328,7 +1285,7 @@ def allocation_table():
         #Update sums
         transportAllocation_sums()
        
-    save_transportAllocation_button = FlatButton(transportDetails_frame, text="Save transport work changes" , command=save_transportAllocation_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+    save_transportAllocation_button = tk.Button(transportDetails_frame, text="Save transport work changes" , command=save_transportAllocation_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
     save_transportAllocation_button.place(x=ww*0.052, y=y_pos_consumption+wh*0.26, height=wh*0.02, width=ww*0.13)
 
 
@@ -1339,14 +1296,14 @@ def transportAllocation_sums():
     allocation_sums=[0,0]
     label_Allocation_sum_value = ['']*2
     allocation_sums[0] = df_TransportWork_SC['Allocation of transport work'][:5].sum()
-    label_Allocation_sum_value[0] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[0]), font=('Arial', pt(9), 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
+    label_Allocation_sum_value[0] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[0]), font=('Arial', 9, 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
     label_Allocation_sum_value[0].place(x=x_pos+ww*0.052, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.038)
     
     label_AllocationGoods_sum = tk.LabelFrame(transportDetails_frame, text="Goods sum", font=font_text_bold, bd=0, bg=c_mid, fg=c_white, labelanchor='s')
     label_AllocationGoods_sum. place(x=x_pos+ww*0.09, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.052)
     
     allocation_sums[1] = df_TransportWork_SC['Allocation of transport work'][5:].sum()
-    label_Allocation_sum_value[1] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[1]), font=('Arial', pt(9), 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
+    label_Allocation_sum_value[1] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[1]), font=('Arial', 9, 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
     label_Allocation_sum_value[1].place(x=x_pos+ww*0.14, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.038)
     
     pad_frame1 = tk.Frame(transportDetails_frame, bg=c_mid, bd=0)
@@ -1411,7 +1368,7 @@ def utilisation_table():
         #Remove the percentage sign and convert to decimal format before updating df_beta_SC
         df_TransportWork_SC['Utilisation degree'] = df_saved_transportUtilisation['[pkm] or [tkm]'].str.rstrip('%').astype(float) / 100
            
-    save_transportUtilisation_button = FlatButton(transportDetails_frame, text="Save utilisation degree changes" , command=save_transportUtilisation_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+    save_transportUtilisation_button = tk.Button(transportDetails_frame, text="Save utilisation degree changes" , command=save_transportUtilisation_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
     save_transportUtilisation_button.place(x=ww*0.048, y=y_pos_consumption+wh*0.61, height=wh*0.02, width=ww*0.135)
 
 
@@ -1487,7 +1444,7 @@ def electricity_table():
     save_electricity_action()    
         
    
-    save_electricity_button = FlatButton(electricity_frame, text="Save electricity changes" , command=save_electricity_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+    save_electricity_button = tk.Button(electricity_frame, text="Save electricity changes" , command=save_electricity_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
     save_electricity_button.place(x=ww*0.089, y=wh*0.44, height=wh*0.025, width=ww*0.11)
 
 #Creating electricity "table" with relevant sums
@@ -1600,7 +1557,7 @@ def heat_table():
     
     save_DH_action()
     
-    save_DH_button = FlatButton(DH_frame, text="Save district heat changes" , command=save_DH_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+    save_DH_button = tk.Button(DH_frame, text="Save district heat changes" , command=save_DH_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
     save_DH_button.place(x=ww*0.055, y=wh*0.312, height=wh*0.025, width=ww*0.12)
 
 #Creating "table" of relevant sums
@@ -1673,7 +1630,7 @@ def DH_piePlot():
     fig, ax = plot_pie(pie_data, [PLOT_COLORS[6],PLOT_COLORS[4],PLOT_COLORS[3]])
     canvas_FEC = FigureCanvasTkAgg(fig, master=DH_frame)
     canvas_FEC.get_tk_widget().place(x=ww*0.029 , y=wh*0.491, width = ww*0.125, height = ww*0.125) 
-    label_DH_piePlot = tk.LabelFrame(DH_frame, text='District heat production sources', font=('Arial', pt(9), 'bold'), bd=0, bg=c_light, fg=c_mid)
+    label_DH_piePlot = tk.LabelFrame(DH_frame, text='District heat production sources', font=('Arial', 9, 'bold'), bd=0, bg=c_light, fg=c_mid)
     label_DH_piePlot.place(x=ww*0.025, y=wh*0.473, height=wh*0.0213, width = ww*0.18)
 #------------------------------------------------------------------------------
 
@@ -1778,7 +1735,7 @@ def electricity_c_piePlot():
     fig, ax = plot_pie(pie_data, PLOT_COLORS[0:3])
     canvas_FEC = FigureCanvasTkAgg(fig, master=productionPlots_frame)
     canvas_FEC.get_tk_widget().place(x=ww*0.05, y=wh*0.05, width = ww*0.127, height = ww*0.127)
-    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='Electricity production categories', font=('Arial', pt(9), 'bold'), bd=0, bg=c_light, fg=c_dark)
+    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='Electricity production categories', font=('Arial', 9, 'bold'), bd=0, bg=c_light, fg=c_dark)
     label_electricity_c_piePlot.place(x=ww*0.05, y=wh*0.02, height=wh*0.0213, width = ww*0.18)
     
 def DH_c_piePlot():
@@ -1787,7 +1744,7 @@ def DH_c_piePlot():
     ax.set_title('District heat production categories incl. CHP', fontsize=9, color=c_black, weight='bold')
     canvas_FEC = FigureCanvasTkAgg(fig, master=productionPlots_frame)
     canvas_FEC.get_tk_widget().place(x=ww*0.22, y=wh*0.05, width = ww*0.127, height = ww*0.127)    
-    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='District heat production categories incl. CHP', font=('Arial', pt(9), 'bold'), bd=0, bg=c_light, fg=c_dark)
+    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='District heat production categories incl. CHP', font=('Arial', 9, 'bold'), bd=0, bg=c_light, fg=c_dark)
     label_electricity_c_piePlot.place(x=ww*0.2, y=wh*0.02, height=wh*0.0213, width = ww*0.18)
 
 #------------------------------------------------------------------------------
@@ -1892,7 +1849,7 @@ def create_FEC_BY_frame():
     create_FEC_table()
     
     #button to switch table to FEC [TJ]
-    FEC_table_button = FlatButton(FEC_BY_frame, text="FEC [TJ]", command=create_FEC_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+    FEC_table_button = tk.Button(FEC_BY_frame, text="FEC [TJ]", command=create_FEC_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
     FEC_table_button.config(width=7, height=1)
     FEC_table_button.place(x=ww*0.005, y=wh*0.47)
     
@@ -1917,7 +1874,7 @@ def create_FEC_BY_frame():
         table_beta.place(x=ww*0.005, y=wh*0.5, height=wh*0.21)
         
     #button to switch table to % shares
-    shares_table_button = FlatButton(FEC_BY_frame, text="%", command=create_beta_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+    shares_table_button = tk.Button(FEC_BY_frame, text="%", command=create_beta_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
     shares_table_button.config(width=3, height=1)
     shares_table_button.place(x=ww*0.047, y=wh*0.47)
     
@@ -1954,7 +1911,7 @@ def create_production_BY_frame():
     production_hbar_plot_BY()
     
 #button to switch production table to PJ
-production_table_buttonBY = FlatButton(productionBY_frame, text="PJ", command=create_production_BY_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+production_table_buttonBY = tk.Button(productionBY_frame, text="PJ", command=create_production_BY_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 production_table_buttonBY.config(width=2, height=1)
 production_table_buttonBY.place(x=ww*0.225, y=wh*0.006)
 
@@ -1967,7 +1924,7 @@ def create_productionShares_BY_frame():
     create_production_tables(productionBY_frame, df_Power_BY, df_Heat_BY, 'Shares', "{:.2%}")
     
 #button to switch production table to % shares
-productionShares_table_buttonBY = FlatButton(productionBY_frame, text="%", command=create_productionShares_BY_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+productionShares_table_buttonBY = tk.Button(productionBY_frame, text="%", command=create_productionShares_BY_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 productionShares_table_buttonBY.config(width=2, height=1)
 productionShares_table_buttonBY.place(x=ww*0.24, y=wh*0.006)
 
@@ -2023,7 +1980,7 @@ def create_FEC_SC_frame():
     create_FEC_table()
     
     #button to switch table to FEC [TJ]
-    FEC_table_button = FlatButton(FEC_SC_frame, text="FEC [TJ]", command=create_FEC_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+    FEC_table_button = tk.Button(FEC_SC_frame, text="FEC [TJ]", command=create_FEC_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
     FEC_table_button.config(width=7, height=1)
     FEC_table_button.place(x=ww*0.005, y=wh*0.47)
 
@@ -2049,7 +2006,7 @@ def create_FEC_SC_frame():
         table_beta.place(x=ww*0.005, y=wh*0.5, height=wh*0.21)
         
     #button to switch table to % shares
-    shares_table_button = FlatButton(FEC_SC_frame, text="%", command=create_beta_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+    shares_table_button = tk.Button(FEC_SC_frame, text="%", command=create_beta_table, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
     shares_table_button.config(width=3, height=1)  
     shares_table_button.place(x=ww*0.047, y=wh*0.47)
           
@@ -2087,7 +2044,7 @@ def create_production_SC_frame():
     production_hbar_plot_SC()
     
 #button to switch production table to PJ
-production_table_buttonSC = FlatButton(productionSC_frame, text="PJ", command=create_production_SC_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+production_table_buttonSC = tk.Button(productionSC_frame, text="PJ", command=create_production_SC_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 production_table_buttonSC.config(width=2, height=1)
 production_table_buttonSC.place(x=ww*0.225, y=wh*0.006)
 
@@ -2096,7 +2053,7 @@ def create_productionShares_SC_frame():
     create_production_tables(productionSC_frame, df_Power_SC, df_Heat_SC, 'Shares', "{:.2%}")
     
 #button to switch production table to % shares
-productionShares_table_buttonSC = FlatButton(productionSC_frame, text="%", command=create_productionShares_SC_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+productionShares_table_buttonSC = tk.Button(productionSC_frame, text="%", command=create_productionShares_SC_frame, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 productionShares_table_buttonSC.config(width=2, height=1)
 productionShares_table_buttonSC.place(x=ww*0.24, y=wh*0.006)
 
@@ -2239,13 +2196,13 @@ def transport_table_shares_BY():
     table_transportFuels_shares_BY.place(x=ww*0.005, y=wh*0.04, width=width_BY, height=wh*0.303)
 
 #button to switch table to amounts [TJ]
-transport_amounts_table_button_BY = FlatButton(transport_BY_frame, text="TJ", command=transport_table_amounts_BY, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+transport_amounts_table_button_BY = tk.Button(transport_BY_frame, text="TJ", command=transport_table_amounts_BY, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 transport_amounts_table_button_BY.config(width=3, height=1)
 transport_amounts_table_button_BY.place(x=ww*0.254, y=wh*0.007)
 
 
 #button to switch table to percent
-transport_shares_table_button_BY = FlatButton(transport_BY_frame, text="%", command=transport_table_shares_BY, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+transport_shares_table_button_BY = tk.Button(transport_BY_frame, text="%", command=transport_table_shares_BY, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 transport_shares_table_button_BY.config(width=3, height=1)
 transport_shares_table_button_BY.place(x=ww*0.274, y=wh*0.007)
 
@@ -2294,12 +2251,12 @@ def transport_table_shares_SC():
     table_transportFuels_SC.place(x=ww*0.005, y=wh*0.04, width=width_SC, height=wh*0.303)
 
 #button to switch table to amounts [TJ]
-transport_amounts_table_button_SC = FlatButton(transport_SC_frame, text="TJ", command=transport_table_amounts_SC, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+transport_amounts_table_button_SC = tk.Button(transport_SC_frame, text="TJ", command=transport_table_amounts_SC, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 transport_amounts_table_button_SC.config(width=3, height=1)
 transport_amounts_table_button_SC.place(x=ww*0.42, y=wh*0.007)
 
 #button to switch table to percent
-transport_shares_table_button_SC = FlatButton(transport_SC_frame, text="%", command=transport_table_shares_SC, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
+transport_shares_table_button_SC = tk.Button(transport_SC_frame, text="%", command=transport_table_shares_SC, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_white, font=font_text_bold)
 transport_shares_table_button_SC.config(width=3, height=1)
 transport_shares_table_button_SC.place(x=ww*0.44, y=wh*0.007)
 
@@ -2391,9 +2348,9 @@ def CO2_table_fuel(frame, df_fuel_CO2):
     total_CO2 = ["{:.2f}".format(value) for value in total_CO2]
     table_CO2_fuel.insert("", 'end', values=total_CO2, text='Total emissions') 
     
-    total_frame1 = tk.LabelFrame(frame, text='    Total emissions', bg=c_white, fg=c_black, font=('Arial', pt(9), 'bold'), bd=0)
-    total_frame2 = tk.LabelFrame(frame, text=total_CO2[0], bg=c_white, fg=c_black, font=('Arial', pt(9), 'bold'), bd=0)
-    total_frame3 = tk.LabelFrame(frame, text=total_CO2[1], bg=c_white, fg=c_black, font=('Arial', pt(9), 'bold'), bd=0)
+    total_frame1 = tk.LabelFrame(frame, text='    Total emissions', bg=c_white, fg=c_black, font=('Arial', 9, 'bold'), bd=0)
+    total_frame2 = tk.LabelFrame(frame, text=total_CO2[0], bg=c_white, fg=c_black, font=('Arial', 9, 'bold'), bd=0)
+    total_frame3 = tk.LabelFrame(frame, text=total_CO2[1], bg=c_white, fg=c_black, font=('Arial', 9, 'bold'), bd=0)
     
     
     for i in range(len(heading_CO2_fuel)):
@@ -2545,7 +2502,7 @@ def prices_table(df_FuelPrice, frame, co2_price, year):
         entry_co2Price = ttk.Entry(frame, font=font_table)
         entry_co2Price.insert(0, co2_price)
         entry_co2Price.place(x=x_pos_prices+ww*0.11, y=y_pos_prices + wh*0.24, height=wh*0.019, width=ww*0.05)
-        save_prices_button = FlatButton(frame, text="Save price changes", command=save_prices_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+        save_prices_button = tk.Button(frame, text="Save price changes", command=save_prices_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
         save_prices_button.place(x=ww*0.085, y=wh*0.01, height=wh*0.025, width=ww*0.083)
     elif year == "Base year":
         label_co2Price = tk.Label(frame, text=co2_price, font=font_table, bd=0, bg=c_white, fg=c_dark)
@@ -2702,9 +2659,9 @@ def timeSeries_avgMonth_plot():
     imageName = figure_path("avgMonth" + ".png")
     fig.savefig(imageName)
 
-button_plot_avgWeek = FlatButton(timeSeries_subframe, text="Average week", command=timeSeries_avgWeek_plot, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+button_plot_avgWeek = tk.Button(timeSeries_subframe, text="Average week", command=timeSeries_avgWeek_plot, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
 button_plot_avgWeek.place(x=ww*0.55, y=wh*0.33, height=wh*0.032, width=ww*0.1)
-button_plot_avgMonth = FlatButton(timeSeries_subframe, text="Average month", command=timeSeries_avgMonth_plot, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
+button_plot_avgMonth = tk.Button(timeSeries_subframe, text="Average month", command=timeSeries_avgMonth_plot, bd=0, bg=c_midlight, fg=c_white, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
 button_plot_avgMonth.place(x=ww*0.66, y=wh*0.33, height=wh*0.032, width=ww*0.1)
 
 #Update time series data
@@ -2715,7 +2672,7 @@ def update_timeSeries():
     timeSeries_avgWeek_plot()
 
 #Button to update time series data
-button_update_timeSeries = FlatButton(timeSeries_subframe, text='Update Time Series', command=lambda: run_while_busy(update_timeSeries, "Calculating the time series..."), bd=0, bg=c_dark, fg=c_accent, activebackground=c_accent, activeforeground=c_dark, font=font_text_bold)
+button_update_timeSeries = tk.Button(timeSeries_subframe, text='Update Time Series', command=lambda: run_while_busy(update_timeSeries, "Calculating the time series..."), bd=0, bg=c_dark, fg=c_accent, activebackground=c_accent, activeforeground=c_dark, font=font_text_bold)
 button_update_timeSeries.place(x=ww*0.69, y=wh*0.01, height=wh*0.035, width=ww*0.1)
 text_update_timeSeries = tk.Label(timeSeries_subframe, text="May take a minute", font=font_text, bg=c_light, fg=c_dark)
 text_update_timeSeries.place(x=ww*0.69, y=wh*0.045, anchor='nw')
@@ -2776,7 +2733,7 @@ def update_SC_year():
 entry_year = ttk.Entry(window, font=font_table)
 entry_year.insert(0, Scenario_Year)
 entry_year.place(x=ww*0.755, y=wh*0.01, height=wh*0.03, width=ww*0.1)
-button_update_scenarioYear = FlatButton(window, text='Update Scenario Year', command=lambda: run_while_busy(update_SC_year, "Updating the scenario year..."), bd=0, bg=c_mid, fg=c_white, activebackground=c_accent, activeforeground=c_white, font=font_table_heading)
+button_update_scenarioYear = tk.Button(window, text='Update Scenario Year', command=lambda: run_while_busy(update_SC_year, "Updating the scenario year..."), bd=0, bg=c_mid, fg=c_white, activebackground=c_accent, activeforeground=c_white, font=font_table_heading)
 button_update_scenarioYear.place(x=ww*0.755, y=wh*0.04769, height=wh*0.032, width=ww*0.1)
     
 
@@ -3026,10 +2983,10 @@ def reload_scenario_data():
 scenario_file_label = tk.Label(menu_frame, text="Scenario file", font=font_text_bold, bg=c_mid, fg=c_white)
 scenario_file_label.place(x=ww*0.014, y=wh*0.795)
 for i, (text, command) in enumerate([("Save scenario as...", save_scenario_as), ("Open scenario...", open_scenario), ("Reset to default scenario", reset_scenario)]):
-    scenario_file_button = FlatButton(menu_frame, text=text, command=command, bd=0, bg=c_dark, fg=c_white, activebackground=c_accent, activeforeground=c_dark, font=font_text_bold)
+    scenario_file_button = tk.Button(menu_frame, text=text, command=command, bd=0, bg=c_dark, fg=c_white, activebackground=c_accent, activeforeground=c_dark, font=font_text_bold)
     scenario_file_button.place(x=ww*0.014, y=wh*(0.82 + 0.035*i), width=button_width, height=wh*0.03)
 
-button_update_scenario = FlatButton(window, text='Update Scenario', command=lambda: run_while_busy(update_scenario, "Updating the scenario..."), bd=0, bg=c_dark, fg=c_white, activebackground=c_accent, activeforeground=c_white, font=font_button)
+button_update_scenario = tk.Button(window, text='Update Scenario', command=lambda: run_while_busy(update_scenario, "Updating the scenario..."), bd=0, bg=c_dark, fg=c_white, activebackground=c_accent, activeforeground=c_white, font=font_button)
 
 button_update_scenario.place(x=ww*0.86, y=wh*0.01, height=wh*0.07, width=ww*0.1)
 #==============================================================================

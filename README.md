@@ -46,8 +46,8 @@ This creates an environment called `pystream` with Python and the packages in
 
 ```bash
 conda activate pystream
-python pySTREAM.py          # Windows
-python pySTREAM_mac.py      # macOS
+python program/pySTREAM.py      # Windows
+python program/pySTREAM_mac.py  # macOS
 ```
 
 The start scripts (`start_windows.bat`, `start_mac.command`) only work with the install
@@ -126,10 +126,11 @@ All changes since the original 2023 version are listed in [CHANGELOG.md](CHANGEL
 
 ```
 pySTREAM/
-├── pySTREAM.py           # the window (tkinter); start pySTREAM with this file
-├── pySTREAM_mac.py       # the window, macOS version (used by start_mac.command)
-├── Backend.py            # the model: energy balance, CO2 and costs
-├── Time_Series.py        # the hourly time series
+├── program/
+│   ├── pySTREAM.py       # the window (tkinter); start pySTREAM with this file
+│   ├── pySTREAM_mac.py   # the window, macOS version (used by start_mac.command)
+│   ├── Backend.py        # the model: energy balance, CO2 and costs
+│   └── Time_Series.py    # the hourly time series
 ├── data/                 # input data (see above)
 ├── docs/                 # comparison with the Excel STREAM model
 ├── tests/                # automatic tests
@@ -146,8 +147,8 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows
 source .venv/bin/activate       # macOS/Linux
 pip install -r requirements.txt
-python pySTREAM.py              # Windows/Linux
-python pySTREAM_mac.py          # macOS
+python program/pySTREAM.py      # Windows/Linux
+python program/pySTREAM_mac.py  # macOS
 ```
 
 `pySTREAM_mac.py` is a copy of `pySTREAM.py` with changes for macOS (buttons that keep
