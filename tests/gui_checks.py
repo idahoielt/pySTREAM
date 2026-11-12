@@ -70,6 +70,16 @@ if check == 'missing_data_file':
         json.dump({'messages': messages, 'log': read_error_log()}, f)
     os._exit(0)
 
+# The screen_* checks pretend the screen has another size. The window then cannot fill the screen ('zoomed'),
+# so pySTREAM uses the screen size minus 100 pixels for the taskbar and title bar: the layout gets width x height.
+SIMULATED_SCREENS = {'screen_laptop': (1366, 768), 'screen_design': (1920, 1080),
+                     'screen_large': (2560, 1440), 'screen_tiny': (1024, 600)}
+if check in SIMULATED_SCREENS:
+    width, height = SIMULATED_SCREENS[check]
+    tkinter.Misc.winfo_screenwidth = lambda self: width
+    tkinter.Misc.winfo_screenheight = lambda self: height + 100
+    tkinter.Wm.wm_state = tkinter.Wm.state = lambda self, newstate=None: 'normal' if newstate is None else None
+
 import pySTREAM as gui
 gui.root.withdraw()
 
@@ -346,7 +356,88 @@ def small_screen():
     return out
 
 
+def text_lines(text, text_font, wraplength):
+    """The lines Tk shows the text in: it breaks the text at spaces so no line is longer than wraplength."""
+    lines = []
+    for paragraph in str(text).split('\n'):
+        line = ''
+        for word in paragraph.split(' '):
+            longer = (line + ' ' + word) if line else word
+            if line and wraplength > 0 and text_font.measure(longer) > wraplength:
+                lines.append(line)
+                line = word
+            else:
+                line = longer
+        lines.append(line)
+    return lines
+
+
+def cut_off_text(page):
+    """Texts on the shown page that do not fit in their label, button or table column."""
+    import tkinter.font
+    style = tkinter.ttk.Style()
+    out = []
+    widgets = [gui.window]
+    while widgets:
+        widget = widgets.pop()
+        widgets.extend(widget.winfo_children())
+        if not widget.winfo_ismapped():
+            continue
+        if isinstance(widget, (tkinter.Label, tkinter.Button, tkinter.LabelFrame)) and widget.cget('text'):
+            # Only the letters themselves must fit: Tk may cut off the empty space it keeps around the text
+            text_font = tkinter.font.Font(font=widget.cget('font'))
+            wraplength = 0 if isinstance(widget, tkinter.LabelFrame) else widget.winfo_fpixels(widget.cget('wraplength'))
+            lines = text_lines(widget.cget('text'), text_font, wraplength)
+            text_size = (max(text_font.measure(line) for line in lines), text_font.metrics('linespace') * len(lines))
+            room = (widget.winfo_width() - 2 * int(widget.cget('bd')), widget.winfo_height() - 2 * int(widget.cget('bd')))
+            if text_size[0] > room[0] or text_size[1] > room[1]:
+                out.append(f'{page}: {widget.cget("text")!r} needs {text_size[0]} x {text_size[1]} pixels, '
+                           f'has {room[0]} x {room[1]}')
+        elif isinstance(widget, tkinter.ttk.Treeview):
+            cell_font = tkinter.font.Font(font=style.lookup(widget.cget('style') or 'Treeview', 'font'))
+            heading_font = tkinter.font.Font(font=style.lookup('Treeview.Heading', 'font'))
+            padding = 2 * gui.px(4)
+            columns = list(widget['columns'])
+            for i, column in enumerate(columns):
+                column_width = widget.column(column, 'width')
+                if 'headings' in str(widget.cget('show')) and heading_font.measure(widget.heading(column, 'text')) + padding > column_width:
+                    out.append(f'{page}: heading {widget.heading(column, "text")!r} does not fit in {column_width} pixels')
+                rows = list(widget.get_children())
+                rows += [child for row in rows for child in widget.get_children(row)]
+                for row in rows:
+                    values = widget.item(row, 'values')
+                    if i < len(values) and cell_font.measure(str(values[i])) + padding > column_width:
+                        out.append(f'{page}: {values[i]!r} in column {column!r} does not fit in {column_width} pixels')
+    return out
+
+
+def screen_layout():
+    """Start pySTREAM on a screen of another size (see SIMULATED_SCREENS) and look at every page."""
+    root = gui.root
+    root.deiconify()
+    root.update()
+    out = {'scale': gui.SCALE, 'layout': [gui.ww, gui.wh], 'screen': list(SIMULATED_SCREENS[check]),
+           'tk scaling': float(root.tk.call('tk', 'scaling')), 'table row height': gui.style.lookup('Treeview', 'rowheight'),
+           'cut off text': []}
+    pages = {'graphs': gui.graphs_button_action, 'consumption': gui.consumption_button_action,
+             'production': gui.production_button_action, 'base year': gui.by_button_action,
+             'scenario': gui.scenario_button_action, 'transport': gui.transport_button_action,
+             'CO2': gui.CO2_button_action, 'economy': gui.economy_button_action}
+    for page, show in pages.items():
+        show()
+        root.update()
+        out['cut off text'] += cut_off_text(page)
+    out['horizontal scrollbar shown'] = gui.scroll_x.winfo_ismapped() == 1
+    out['vertical scrollbar shown'] = gui.scroll_y.winfo_ismapped() == 1
+    root.withdraw()
+    return out
+
+
 CHECKS = {
+    'screen_laptop': screen_layout,
+    'screen_design': screen_layout,
+    'screen_large': screen_layout,
+    'screen_tiny': screen_layout,
     'small_screen': small_screen,
     'time_series_on_demand': time_series_on_demand,
     'scenario_files': scenario_files,

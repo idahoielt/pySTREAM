@@ -180,8 +180,15 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
-- The window fits the screen; on smaller (laptop) screens scrollbars appear, and
-  the mouse wheel scrolls the page.
+- pySTREAM adapts to the screen it is started on: the whole layout, text,
+  tables and plots are scaled to fill it, from small laptops to 4K screens
+  (the layout is designed for 1920 x 1080 pixels). On Windows with display
+  scaling above 100 %, text is now sharp (Windows no longer enlarges the window
+  as a picture) and the layout no longer changes after the first plot. On very
+  small screens the text keeps a readable minimum size (60 %) and scrollbars
+  appear; the mouse wheel scrolls the page. On macOS, text is now scaled in the
+  same way as on Windows (before, it was smaller there). No model results
+  change.
 - Errors are shown in a window in plain language (e.g. "the file is open in
   Excel, close it and try again"), with the details saved in
   `pySTREAM error log.txt`.

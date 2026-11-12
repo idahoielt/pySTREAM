@@ -78,8 +78,11 @@ Every plot is also saved as a picture in the `figures` folder, for use in a repo
 - **"The file is open in Excel":** close the data file in Excel and try again.
 - **The energy flow (Sankey) diagrams** are drawn with Google Chrome. Without Chrome,
   the Graphs page shows a button that opens them in your web browser instead.
-- **On a small screen**, scroll bars appear; you can also scroll with the mouse wheel
-  (Shift + wheel scrolls sideways).
+- **pySTREAM adapts to your screen:** the window, text, tables and plots are scaled to
+  fill the screen pySTREAM is started on. On a very small screen (smaller than about
+  1150 x 650 pixels) the text keeps a readable size and scroll bars appear; you can also
+  scroll with the mouse wheel (Shift + wheel scrolls sideways). If you move pySTREAM to
+  another screen, start it again there to fit that screen.
 - **The install script says Python is missing or too old:** install Python 3.12 or newer
   from https://www.python.org/downloads/ and run the install script again.
 

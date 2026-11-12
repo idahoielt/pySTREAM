@@ -233,19 +233,60 @@ c_accent = '#F1D89C'
 
 #Open program window
 #==============================================================================
-#The layout is made for 1920 x 1080 pixels (ww x wh). It sits in a scrollable area of the window (root), which is
-#fitted to the screen, so pySTREAM can also be used on smaller laptop screens: scrollbars appear when needed.
-ww = 1920  #layout width
-wh = 1080  #layout height
+#The layout is designed for a screen of 1920 x 1080 pixels. When pySTREAM starts, the layout is scaled by SCALE so it
+#fills the screen it is shown on (ww x wh pixels): positions and sizes are fractions of ww and wh, text is scaled with
+#'tk scaling' (below), and the few sizes given in pixels use px(). On very small screens the layout keeps a readable
+#minimum size and scrollbars appear. The layout sits in a scrollable area of the window (root).
+DESIGN_WIDTH = 1920
+DESIGN_HEIGHT = 1080
+MIN_SCALE = 0.6 #smaller text is hard to read
+
+#On Windows with display scaling above 100 %, Windows would otherwise enlarge the whole window as a picture (blurry
+#text, and the layout did not fit the screen), and the first plot made matplotlib change this setting halfway through.
+if sys.platform == 'win32':
+    try:
+        ctypes.windll.shcore.SetProcessDpiAwareness(1) #pySTREAM scales itself (see SCALE)
+    except (AttributeError, OSError):
+        pass #older Windows: Windows scales the window as before
 
 root = tk.Tk()
 root.report_callback_exception = handle_error #errors after a button is pressed
 root.title("pySTREAM - Energy System Simulation Tool")
-root.geometry('%dx%d+0+0' % (min(ww, root.winfo_screenwidth()), min(wh, root.winfo_screenheight())))
+root.geometry('%dx%d+0+0' % (min(DESIGN_WIDTH, root.winfo_screenwidth()), min(DESIGN_HEIGHT, root.winfo_screenheight())))
 try:
-    root.state('zoomed') #fill the screen (Windows)
+    root.state('zoomed') #fill the screen (Windows and macOS)
 except tk.TclError:
     pass #not available on every system; the size set above is used instead
+
+def available_size():
+    """Width and height pySTREAM can use: the inside of the window when it fills the screen."""
+    root.update()
+    if root.state() == 'zoomed' and root.winfo_width() > 200 and root.winfo_height() > 200:
+        return root.winfo_width(), root.winfo_height()
+    return root.winfo_screenwidth(), root.winfo_screenheight() - 100 #leave room for the taskbar and title bar
+
+def layout_scale(width, height):
+    """How much the 1920 x 1080 layout is enlarged (> 1) or reduced (< 1) to fit a space of width x height pixels."""
+    return max(MIN_SCALE, min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT))
+
+SCALE = layout_scale(*available_size())
+ww = int(DESIGN_WIDTH * SCALE)  #layout width
+wh = int(DESIGN_HEIGHT * SCALE) #layout height
+if root.state() != 'zoomed': #the window could not be made to fill the screen: give it the size of the layout
+    root.geometry('%dx%d+0+0' % (min(ww, root.winfo_screenwidth()), min(wh, root.winfo_screenheight() - 100)))
+
+def px(pixels):
+    """A size in pixels of the 1920 x 1080 design, scaled to this screen."""
+    return max(1, round(pixels * SCALE))
+
+#Text sizes are given in points. The design uses 96 pixels per inch (72 points), the Windows standard;
+#scaling it here scales all text in the same way as the layout.
+root.tk.call('tk', 'scaling', SCALE * 96 / 72)
+#Plots in the window are scaled in the same way: on Windows and Linux matplotlib does this itself (it follows
+#'tk scaling'), on macOS it is done here. The matplotlib plots saved in the figures folder keep the same size on every screen.
+if sys.platform == 'darwin':
+    plt.rcParams['figure.dpi'] = 100 * SCALE
+plt.rcParams['savefig.dpi'] = 100
 
 scroll_canvas = tk.Canvas(root, bg=c_white, highlightthickness=0, scrollregion=(0, 0, ww, wh), xscrollincrement=40, yscrollincrement=40)
 scroll_x = ttk.Scrollbar(root, orient='horizontal', command=scroll_canvas.xview)
@@ -332,14 +373,14 @@ font_table = ('Arial', 9)
 #table style
 style = ttk.Style()
 style.theme_use('default')
-style.configure('Treeview', background = c_white, foreground = c_black, rowheight = 23, fieldbackground = c_white, relief = 'flat', borderwidth = 0, font = font_table)  
+style.configure('Treeview', background = c_white, foreground = c_black, rowheight = px(23), fieldbackground = c_white, relief = 'flat', borderwidth = 0, font = font_table)  
 style.map('Treeview', background=[('selected', c_midlight)], foreground=[('selected', c_black)])
 style.layout('Treeview', [('Treeview.treearea', {'sticky': 'nswe'})]) #tables without a border (it showed as a white outline around the headings)
 style.configure('Amounts.Treeview', background = c_lightish, fieldbackground = c_lightish, font = ('Arial', 9, 'italic')) #read-only amounts next to the production shares
 style.configure('Sums.Treeview', font = ('Arial', 9, 'italic')) #read-only sums next to the transport fuel shares
-style.configure('Treeview.Heading', background = c_mid, foreground = c_white, relief = 'flat', font=font_table_heading, padding = (3, 0)) #heading text starts where the cell text below it starts
+style.configure('Treeview.Heading', background = c_mid, foreground = c_white, relief = 'flat', font=font_table_heading, padding = (px(3), 0)) #heading text starts where the cell text below it starts
 style.map('Treeview.Heading', background = [('active', c_mid)])
-style.configure('Treeview.Cell', padding = (4, 0)) #space between the left edge of a cell and its text, as in the headings
+style.configure('Treeview.Cell', padding = (px(4), 0)) #space between the left edge of a cell and its text, as in the headings
 style.configure('Treeview.Item', padding = 0)
 style.configure('TEntry', background = c_accent, foreground = c_black, font = font_table, borderwidth = 0, relief = 'flat', fieldbackground = c_accent, selectbackground = c_dark, selectborderwidth = 0, selectforeground = c_white)
 style.map('TEntry', selectBackground = [('active', c_midlight)])
@@ -695,7 +736,7 @@ def header_frame(frame, title, subtitle, subxpos):
     header = tk.Label(header_frame, text=title, font=font_header, bg=c_white, fg=c_dark)
     header.place(x=0, y=0)
     subheader = tk.Label(header_frame, text=subtitle, font=font_subheader, bg=c_white, fg=c_mid)
-    subheader.place(x=subxpos, y=5)
+    subheader.place(x=subxpos, y=px(5))
     
 #==============================================================================
 
@@ -807,7 +848,7 @@ def save_sankey_image(fig, file_name):
     result = {}
     def save():
         try:
-            image_fig.write_image(figure_path(file_name))
+            image_fig.write_image(figure_path(file_name), scale=SCALE) #the image fills the graph area; its text is scaled like the rest
             result['saved'] = True
         except Exception as error:
             result['error'] = error
@@ -835,19 +876,19 @@ def show_sankey(fig, file_name, frame):
         sankey_button = tk.Button(frame, text="Open the energy flow (Sankey) diagram in your browser", command=sankey_web, bd=0, bg=c_lightish, fg=c_dark, activebackground=c_dark, activeforeground=c_white, font=font_button)
         tip = "The diagram could not be shown here (this needs Google Chrome), but it can be opened in your browser."
     sankey_button.place(x=ww*0.005, y=wh*0.04, width = graph_width, height = graph_height)
-    sankey_tip = tk.Label(frame, text = tip, font=font_text, bg=c_light, fg=c_dark)
+    sankey_tip = tk.Label(frame, text = tip, font=font_text, bd=0, bg=c_light, fg=c_dark)
     sankey_tip.place(x=ww*0.005, y=wh*0.58, width=graph_width, height=wh*0.02)
 
 def sankey_SC():
     dataSC = sankey_diagram(df_fuelType_consumption_SC, df_Fc_SC, graphs_sc_frame)
     sankeyFig_SC = go.Figure(dataSC)
-    sankeyFig_SC.update_layout(title_text="Energy streams - " + str(Scenario_Year), title_font=dict(size=20, family="Arial", color=c_dark), title_x=0.5, paper_bgcolor=c_light, width=graph_width+1, height=graph_height+1)
+    sankeyFig_SC.update_layout(title_text="Energy streams - " + str(Scenario_Year), title_font=dict(size=20, family="Arial", color=c_dark), title_x=0.5, paper_bgcolor=c_light, width=graph_width/SCALE+1, height=graph_height/SCALE+1)
     show_sankey(sankeyFig_SC, "sankeySC.png", graphs_sc_frame)
 
 def sankey_BY():
     dataBY = sankey_diagram(df_fuelType_consumption_BY, df_Fc_BY, graphs_sc_frame)
     sankeyFig_BY = go.Figure(dataBY)
-    sankeyFig_BY.update_layout(title_text="Energy streams - " + str(Base_Year), title_font=dict(size=20, family="Arial", color=c_dark), title_x=0.5, paper_bgcolor=c_light, width=graph_width+1, height=graph_height+1)
+    sankeyFig_BY.update_layout(title_text="Energy streams - " + str(Base_Year), title_font=dict(size=20, family="Arial", color=c_dark), title_x=0.5, paper_bgcolor=c_light, width=graph_width/SCALE+1, height=graph_height/SCALE+1)
     show_sankey(sankeyFig_BY, "sankeyBY.png", graphs_by_frame)
 
 #Sankey button
@@ -1261,11 +1302,11 @@ def transportAllocation_sums():
     label_Allocation_sum_value[1].place(x=x_pos+ww*0.14, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.038)
     
     pad_frame1 = tk.Frame(transportDetails_frame, bg=c_mid, bd=0)
-    pad_frame1.place(x=x_pos, y=y_pos_consumption+wh*0.305, width=ww*0.14, height=3)
+    pad_frame1.place(x=x_pos, y=y_pos_consumption+wh*0.305, width=ww*0.14, height=px(3))
     pad_frame2 = tk.Frame(transportDetails_frame, bg=c_white, bd=0)
-    pad_frame2.place(x=x_pos+ww*0.052, y=y_pos_consumption+wh*0.305, width=ww*0.038, height=3)
+    pad_frame2.place(x=x_pos+ww*0.052, y=y_pos_consumption+wh*0.305, width=ww*0.038, height=px(3))
     pad_frame3 = tk.Frame(transportDetails_frame, bg=c_white, bd=0)
-    pad_frame3.place(x=x_pos+ww*0.14, y=y_pos_consumption+wh*0.305, width=ww*0.038, height=3)
+    pad_frame3.place(x=x_pos+ww*0.14, y=y_pos_consumption+wh*0.305, width=ww*0.038, height=px(3))
     
     #Check if the sums add up to 100%
     errors_found = False
@@ -1434,9 +1475,9 @@ def electricity_sums():
     
     #Pad frames are empty frames added to make it look better
     pad_frame1 = tk.Frame(electricity_frame, bg=c_mid, bd=0)
-    pad_frame1.place(x=ww*0.005, y=wh*0.47+wh*0.023*4, width=int(ww*0.105), height=5)
+    pad_frame1.place(x=ww*0.005, y=wh*0.47+wh*0.023*4, width=int(ww*0.105), height=px(5))
     pad_frame2 = tk.Frame(electricity_frame, bg=c_white, bd=0)
-    pad_frame2.place(x=int(ww*0.11), y=wh*0.47+wh*0.023*4, width=int(ww*0.09), height=5)
+    pad_frame2.place(x=int(ww*0.11), y=wh*0.47+wh*0.023*4, width=int(ww*0.09), height=px(5))
     
 #electricity_sums()
 
@@ -1538,9 +1579,9 @@ def DH_sums():
     
     #Pad frames are empty frames added to make it look better
     pad_frame1 = tk.Frame(DH_frame, bg=c_mid)
-    pad_frame1.place(x=ww*0.005, y=wh*0.344+wh*0.023*2, height=5, width=ww*0.09)
+    pad_frame1.place(x=ww*0.005, y=wh*0.344+wh*0.023*2, height=px(5), width=ww*0.09)
     pad_frame2 = tk.Frame(DH_frame, bg=c_white)
-    pad_frame2.place(x=ww*0.095, y=wh*0.344+wh*0.023*2, height=5, width=ww*0.08)
+    pad_frame2.place(x=ww*0.095, y=wh*0.344+wh*0.023*2, height=px(5), width=ww*0.08)
     
     #combined heat and power (CHP)
     label_chp = tk.LabelFrame(DH_frame, text=" Combined heat & power (CHP)", font=font_text_bold, labelanchor='sw', bd=0, bg=c_mid, fg=c_white)
@@ -1558,9 +1599,9 @@ def DH_sums():
     
     #Pad frames are empty frames added to make it look better
     pad_frame3 = tk.Frame(DH_frame, bg=c_mid)
-    pad_frame3.place(x=ww*0.005, y=wh*0.344+wh*0.023*5, height=5, width=ww*0.13)
+    pad_frame3.place(x=ww*0.005, y=wh*0.344+wh*0.023*5, height=px(5), width=ww*0.13)
     pad_frame4 = tk.Frame(DH_frame, bg=c_white)
-    pad_frame4.place(x=ww*0.135, y=wh*0.344+wh*0.023*5, height=5, width=ww*0.04)
+    pad_frame4.place(x=ww*0.135, y=wh*0.344+wh*0.023*5, height=px(5), width=ww*0.04)
     
     
     
@@ -2251,7 +2292,7 @@ def show_CO2_frame():
     CO2_table_BY()
     CO2_table_SC()
 
-header_frame(CO2_frame, "CO2 data", "Base year & Scenario", 190)
+header_frame(CO2_frame, "CO2 data", "Base year & Scenario", px(190))
 
 #Table with CO2 emissions per sector and fuel
 #----------------------------------------------------------------------------------
@@ -2394,7 +2435,7 @@ def show_economy_frame():
     economy_frame.config(width=ww*0.8, height=wh*0.85, bg=c_white) 
     economy_frame.place(x=ww*0.17, y=wh*0.025)
     
-header_frame(economy_frame, "Economy", "Base year & Scenario", 190)
+header_frame(economy_frame, "Economy", "Base year & Scenario", px(190))
 
 #Creating editable Fuel prices tables
 columns_fuelPrices = ['Fuel', 'Price [€/GJ]']
@@ -2459,7 +2500,7 @@ def prices_table(df_FuelPrice, frame, co2_price, year):
         save_prices_button = tk.Button(frame, text="Save price changes", command=save_prices_action, bd=0, bg=c_accent, fg=c_dark, activebackground=c_dark, activeforeground=c_accent, font=font_text_bold)
         save_prices_button.place(x=ww*0.085, y=wh*0.01, height=wh*0.025, width=ww*0.083)
     elif year == "Base year":
-        label_co2Price = tk.Label(frame, text=co2_price, font=font_table, bg=c_white, fg=c_dark)
+        label_co2Price = tk.Label(frame, text=co2_price, font=font_table, bd=0, bg=c_white, fg=c_dark)
         label_co2Price.place(x=x_pos_prices+ww*0.11, y=y_pos_prices + wh*0.24, height=wh*0.019, width=ww*0.05)
 
     
@@ -2576,7 +2617,7 @@ timeSeries_frame = tk.Frame(window)
 timeSeries_subframe = tk.Frame(timeSeries_frame, width=ww*0.8, height=wh*0.8, bg=c_light)
 #The time series takes a while to calculate, so it is calculated when its page is opened (again after the scenario changes)
 df_hour, technologies_used = None, None
-header_frame(timeSeries_frame, "Time Series", "Scenario", 250)
+header_frame(timeSeries_frame, "Time Series", "Scenario", px(250))
 
 #Show time series frame
 def show_timeSeries_frame():

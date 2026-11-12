@@ -149,6 +149,30 @@ class GuiTest(unittest.TestCase):
         self.assertGreater(result['visible part after mouse wheel'][0], 0, 'the mouse wheel should scroll down')
         self.assertEqual(result['visible part at the bottom'][1], 1, 'the bottom of the layout should be reachable')
 
+    def test_layout_is_scaled_to_fit_the_screen(self):
+        # (The window cannot be made larger than the real screen, so scrollbars are only checked for screens
+        # that are not larger than the one the tests run on.)
+        for check in ('screen_laptop', 'screen_design', 'screen_large'):
+            with self.subTest(check):
+                result = self.get(check)
+                width, height = result['screen']
+                scale = min(width / 1920, height / 1080)
+                self.assertAlmostEqual(result['scale'], scale)
+                self.assertEqual(result['layout'], [int(1920 * scale), int(1080 * scale)])
+                self.assertAlmostEqual(result['tk scaling'], scale * 96 / 72, places=2, msg='text should be scaled like the layout')
+                self.assertEqual(result['table row height'], round(23 * scale))
+                self.assertEqual(result['cut off text'], [])
+                if check != 'screen_large':
+                    self.assertFalse(result['horizontal scrollbar shown'], 'the whole layout should fit the screen')
+                    self.assertFalse(result['vertical scrollbar shown'], 'the whole layout should fit the screen')
+
+    def test_text_stays_readable_on_a_very_small_screen(self):
+        result = self.get('screen_tiny')
+        self.assertEqual(result['scale'], 0.6, 'the layout should not get smaller than the minimum')
+        self.assertTrue(result['horizontal scrollbar shown'])
+        self.assertTrue(result['vertical scrollbar shown'])
+        self.assertEqual(result['cut off text'], [])
+
     def check_friendly_error(self, check, expected_text):
         result = self.get(check)
         errors = [text for kind, title, text in result['messages'] if kind == 'showerror']
