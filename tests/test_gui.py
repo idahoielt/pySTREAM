@@ -156,16 +156,18 @@ class GuiTest(unittest.TestCase):
             with self.subTest(check):
                 result = self.get(check)
                 width, height = result['screen']
-                scale = min(width / 1920, height / 1080)
+                scale = min(width / 1880, height / 1010) #the part of the 1920 x 1080 design that has content
                 self.assertAlmostEqual(result['scale'], scale)
                 self.assertEqual(result['layout'], [int(1920 * scale), int(1080 * scale)])
                 self.assertAlmostEqual(result['tk scaling'], scale * 96 / 72, places=2, msg='text should be scaled like the layout')
                 self.assertEqual(result['table row height'], round(23 * scale))
                 self.assertEqual(result['cut off text'], [])
+                self.assertLessEqual(result['used area'][0], width, 'the content should fit the screen')
+                self.assertLessEqual(result['used area'][1], height, 'the content should fit the screen')
                 window_width, window_height = result['window inside']
-                if window_width >= result['layout'][0]:
+                if window_width >= result['used area'][0]:
                     self.assertFalse(result['horizontal scrollbar shown'], 'the whole layout should fit the screen')
-                if window_height >= result['layout'][1]:
+                if window_height >= result['used area'][1]:
                     self.assertFalse(result['vertical scrollbar shown'], 'the whole layout should fit the screen')
 
     def test_buttons_keep_their_colours_and_react_to_clicks(self):

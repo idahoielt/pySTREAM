@@ -87,7 +87,7 @@ Every plot is also saved as a picture in the `figures` folder, for use in a repo
   the Graphs page shows a button that opens them in your web browser instead.
 - **pySTREAM adapts to your screen:** the window, text, tables and plots are scaled to
   fill the screen pySTREAM is started on. On a very small screen (smaller than about
-  1150 x 650 pixels) the text keeps a readable size and scroll bars appear; you can also
+  1130 x 610 pixels) the text keeps a readable size and scroll bars appear; you can also
   scroll with the mouse wheel (Shift + wheel scrolls sideways). If you move pySTREAM to
   another screen, start it again there to fit that screen.
 - **The install script says Python is missing or too old:** install Python 3.12 or newer
