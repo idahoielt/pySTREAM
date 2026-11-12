@@ -180,6 +180,9 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- The README has separate step-by-step install instructions for Windows and
+  macOS (including how to allow the scripts on macOS 15 and newer), and links to
+  the manual, the data, the comparison with Excel STREAM and the developer notes.
 - The changelog and the developer notes are in `docs/` (`docs/developers.md`),
   so the README is only about using pySTREAM.
 - The Python files are in the `program` folder, so the main folder has fewer
