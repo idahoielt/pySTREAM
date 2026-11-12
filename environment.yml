@@ -1,0 +1,11 @@
+# Optional: a conda environment for pySTREAM (see "Using conda" in the README).
+# Python comes from conda-forge (it includes tkinter, which pySTREAM's window needs);
+# the packages are installed with pip from requirements.txt, so their versions are listed in one place.
+name: pystream
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.12
+  - pip
+  - pip:
+      - -r requirements.txt

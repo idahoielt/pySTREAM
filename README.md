@@ -31,6 +31,28 @@ https://www.python.org/downloads/.
 
 You only install once; after that, use the start script.
 
+### Using conda (optional)
+
+If you already use Anaconda or Miniconda, you can install pySTREAM in a conda environment
+instead of using the install script. In a terminal (on Windows: the Anaconda Prompt),
+go to the pySTREAM folder and run:
+
+```bash
+conda env create -f environment.yml
+```
+
+This creates an environment called `pystream` with Python and the packages in
+`requirements.txt`. To start pySTREAM, activate it and run the window file:
+
+```bash
+conda activate pystream
+python pySTREAM.py          # Windows
+python pySTREAM_mac.py      # macOS
+```
+
+The start scripts (`start_windows.bat`, `start_mac.command`) only work with the install
+scripts' `.venv` environment, not with conda.
+
 ## Your first scenario
 
 pySTREAM starts with a scenario for 2050 compared with the base year 2015. Try changing
@@ -112,6 +134,7 @@ pySTREAM/
 ├── docs/                 # comparison with the Excel STREAM model
 ├── tests/                # automatic tests
 ├── requirements.txt      # Python packages
+├── environment.yml       # optional conda environment (uses requirements.txt)
 ├── install_*/start_*     # install and start scripts for Windows and macOS
 └── figures/              # plots saved while running (created automatically)
 ```

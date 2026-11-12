@@ -180,6 +180,8 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- pySTREAM can also be installed in a conda environment (`environment.yml`,
+  see "Using conda" in the README). The install scripts are unchanged.
 - macOS: `start_mac.command` starts `pySTREAM_mac.py`, a version of the window
   made for macOS (from the `mac` branch): buttons keep their colours, plots are
   drawn with Tk, and text is scaled with the screen. The model is the same.
