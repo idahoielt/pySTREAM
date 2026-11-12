@@ -180,6 +180,9 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- macOS: `start_mac.command` starts `pySTREAM_mac.py`, a version of the window
+  made for macOS (from the `mac` branch): buttons keep their colours, plots are
+  drawn with Tk, and text is scaled with the screen. The model is the same.
 - pySTREAM uses more of the screen: the empty margins at the right and bottom
   of the 1920 x 1080 design no longer count when the layout is fitted to the
   screen (it fits the 1880 x 1010 pixels that have content). On a 1920 x 1080

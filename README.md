@@ -105,6 +105,7 @@ All changes since the original 2023 version are listed in [CHANGELOG.md](CHANGEL
 ```
 pySTREAM/
 ├── pySTREAM.py           # the window (tkinter); start pySTREAM with this file
+├── pySTREAM_mac.py       # the window, macOS version (used by start_mac.command)
 ├── Backend.py            # the model: energy balance, CO2 and costs
 ├── Time_Series.py        # the hourly time series
 ├── data/                 # input data (see above)
@@ -122,8 +123,14 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows
 source .venv/bin/activate       # macOS/Linux
 pip install -r requirements.txt
-python pySTREAM.py
+python pySTREAM.py              # Windows/Linux
+python pySTREAM_mac.py          # macOS
 ```
+
+`pySTREAM_mac.py` is a copy of `pySTREAM.py` with changes for macOS (buttons that keep
+their colours, plots drawn with Tk, text scaled with the screen). It is developed on the
+`mac` branch, where it is called `pySTREAM.py`; changes to the window must be made in both
+files. Both use the same model (`Backend.py`, `Time_Series.py`).
 
 On Linux, tkinter may need to be installed separately (e.g. `sudo apt install python3-tk`).
 
