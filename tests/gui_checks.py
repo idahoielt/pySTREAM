@@ -80,6 +80,10 @@ if check in SIMULATED_SCREENS:
     tkinter.Misc.winfo_screenheight = lambda self: height + 100
     tkinter.Wm.wm_state = tkinter.Wm.state = lambda self, newstate=None: 'normal' if newstate is None else None
 
+if check == 'matplotlib_backend':
+    # As on macOS, matplotlib would choose another way to draw than Tk (here: 'agg', which draws no windows)
+    os.environ['MPLBACKEND'] = 'agg'
+
 import pySTREAM as gui
 gui.root.withdraw()
 
@@ -456,7 +460,16 @@ def button_click():
     return out
 
 
+def matplotlib_backend():
+    """How matplotlib draws, after pySTREAM has started and drawn a plot."""
+    import matplotlib
+    gui.button_FEC_bar_action()
+    gui.root.update()
+    return {'backend': matplotlib.get_backend().lower()}
+
+
 CHECKS = {
+    'matplotlib_backend': matplotlib_backend,
     'button_click': button_click,
     'screen_laptop': screen_layout,
     'screen_design': screen_layout,

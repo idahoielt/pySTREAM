@@ -176,6 +176,10 @@ class GuiTest(unittest.TestCase):
         self.assertTrue(result['CO2 page after click'])
         self.assertEqual(result['state after click'], 'normal')
 
+    def test_plots_are_drawn_with_tk_on_every_system(self):
+        # matplotlib's default differs per system (on macOS it is Apple's own window system)
+        self.assertEqual(self.get('matplotlib_backend')['backend'], 'tkagg')
+
     def test_text_stays_readable_on_a_very_small_screen(self):
         result = self.get('screen_tiny')
         self.assertEqual(result['scale'], 0.6, 'the layout should not get smaller than the minimum')

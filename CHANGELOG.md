@@ -184,6 +184,9 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
   buttons as Mac buttons and ignores their colour, which made the white text of
   the menu buttons hard to read; pySTREAM now uses its own buttons, which look
   the same on every system.
+- macOS: plots are drawn with Tk, like the rest of the window. matplotlib
+  would otherwise use Apple's own window system there, and running two window
+  systems in one program can make it freeze or crash.
 - pySTREAM adapts to the screen it is started on: the whole layout, text,
   tables and plots are scaled to fill it, from small laptops to 4K screens
   (the layout is designed for 1920 x 1080 pixels). On Windows with display

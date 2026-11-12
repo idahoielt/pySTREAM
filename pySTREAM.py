@@ -14,6 +14,10 @@ import openpyxl
 from PIL import Image, ImageTk
 import plotly.io as pio
 pio.renderers.default='browser'
+import matplotlib
+#Plots are drawn with Tk, like the rest of the window. On macOS, matplotlib would otherwise use Apple's own
+#window system ('macosx'), and two window systems in one program can freeze or crash it. (Windows already uses Tk.)
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import plotly.graph_objects as go
