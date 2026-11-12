@@ -180,10 +180,12 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- The changelog and the developer notes are in `docs/` (`docs/developers.md`),
+  so the README is only about using pySTREAM.
 - The Python files are in the `program` folder, so the main folder has fewer
   files; the data, figures and error log stay in the main pySTREAM folder.
 - pySTREAM can also be installed in a conda environment (`environment.yml`,
-  see "Using conda" in the README). The install scripts are unchanged.
+  see `docs/developers.md`). The install scripts are unchanged.
 - macOS: `start_mac.command` starts `pySTREAM_mac.py`, a version of the window
   made for macOS (from the `mac` branch): buttons keep their colours, plots are
   drawn with Tk, and text is scaled with the screen. The model is the same.

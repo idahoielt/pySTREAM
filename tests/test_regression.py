@@ -2,7 +2,7 @@
 
 The expected results in tests/expected/ were produced by the model itself. If a
 test fails, a change has altered the model results. If that change was intended,
-run `python tests/update_expected.py` and document the change in CHANGELOG.md.
+run `python tests/update_expected.py` and document the change in docs/CHANGELOG.md.
 """
 import os
 import shutil

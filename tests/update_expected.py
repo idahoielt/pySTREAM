@@ -1,7 +1,7 @@
 """Re-run all test scenarios and store their results as the new expected values.
 
 Only run this when a change is *meant* to change the model results. It prints the
-largest changes so they can be documented (commit message and CHANGELOG.md).
+largest changes so they can be documented (commit message and docs/CHANGELOG.md).
 
 Usage (from the project folder): python tests/update_expected.py
 """

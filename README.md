@@ -31,28 +31,6 @@ https://www.python.org/downloads/.
 
 You only install once; after that, use the start script.
 
-### Using conda (optional)
-
-If you already use Anaconda or Miniconda, you can install pySTREAM in a conda environment
-instead of using the install script. In a terminal (on Windows: the Anaconda Prompt),
-go to the pySTREAM folder and run:
-
-```bash
-conda env create -f environment.yml
-```
-
-This creates an environment called `pystream` with Python and the packages in
-`requirements.txt`. To start pySTREAM, activate it and run the window file:
-
-```bash
-conda activate pystream
-python program/pySTREAM.py      # Windows
-python program/pySTREAM_mac.py  # macOS
-```
-
-The start scripts (`start_windows.bat`, `start_mac.command`) only work with the install
-scripts' `.venv` environment, not with conda.
-
 ## Your first scenario
 
 pySTREAM starts with a scenario for 2050 compared with the base year 2015. Try changing
@@ -120,60 +98,12 @@ Every plot is also saved as a picture in the `figures` folder, for use in a repo
 
 How pySTREAM's results compare with the Excel STREAM model, and where they deliberately
 differ, is described in [docs/comparison-with-excel-model.md](docs/comparison-with-excel-model.md).
-All changes since the original 2023 version are listed in [CHANGELOG.md](CHANGELOG.md).
+All changes since the original 2023 version are listed in [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## For developers
 
-```
-pySTREAM/
-├── program/
-│   ├── pySTREAM.py       # the window (tkinter); start pySTREAM with this file
-│   ├── pySTREAM_mac.py   # the window, macOS version (used by start_mac.command)
-│   ├── Backend.py        # the model: energy balance, CO2 and costs
-│   └── Time_Series.py    # the hourly time series
-├── data/                 # input data (see above)
-├── docs/                 # comparison with the Excel STREAM model
-├── tests/                # automatic tests
-├── requirements.txt      # Python packages
-├── environment.yml       # optional conda environment (uses requirements.txt)
-├── install_*/start_*     # install and start scripts for Windows and macOS
-└── figures/              # plots saved while running (created automatically)
-```
-
-To set up without the install scripts:
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate          # Windows
-source .venv/bin/activate       # macOS/Linux
-pip install -r requirements.txt
-python program/pySTREAM.py      # Windows/Linux
-python program/pySTREAM_mac.py  # macOS
-```
-
-`pySTREAM_mac.py` is a copy of `pySTREAM.py` with changes for macOS (buttons that keep
-their colours, plots drawn with Tk, text scaled with the screen). It is developed on the
-`mac` branch, where it is called `pySTREAM.py`; changes to the window must be made in both
-files. Both use the same model (`Backend.py`, `Time_Series.py`).
-
-On Linux, tkinter may need to be installed separately (e.g. `sudo apt install python3-tk`).
-
-### Tests
-
-The tests check that results do not change unintentionally, that they match the Excel
-STREAM model, and that the main parts of the window work. Run them from the pySTREAM
-folder with the environment active (takes a few minutes):
-
-```bash
-python -m unittest
-```
-
-If a change is meant to change the results, update the expected values with
-`python tests/update_expected.py` and describe the change, with before and after
-numbers, in `CHANGELOG.md`.
-
-pySTREAM has been tested with Python 3.14 on Windows, with the package versions allowed
-by `requirements.txt`. The macOS scripts have not been tested on a Mac yet.
+How the files are organised, how to set up pySTREAM by hand or with conda, and how to
+run the tests: see [docs/developers.md](docs/developers.md).
 
 ## How to cite
 
