@@ -190,6 +190,9 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 - macOS: the README explains how to open the install and start scripts on
   macOS 15 (Sequoia) and newer, where right-click → Open no longer works for
   downloaded scripts: System Settings → Privacy & Security → Open Anyway.
+- macOS: text is scaled with the screen, like the layout. Tk on macOS ignores
+  the 'tk scaling' setting that scales text on Windows, so on macOS pySTREAM
+  scales the text sizes themselves.
 - pySTREAM adapts to the screen it is started on: the whole layout, text,
   tables and plots are scaled to fill it, from small laptops to 4K screens
   (the layout is designed for 1920 x 1080 pixels). On Windows with display

@@ -150,8 +150,8 @@ class GuiTest(unittest.TestCase):
         self.assertEqual(result['visible part at the bottom'][1], 1, 'the bottom of the layout should be reachable')
 
     def test_layout_is_scaled_to_fit_the_screen(self):
-        # (The window cannot be made larger than the real screen, so scrollbars are only checked for screens
-        # that are not larger than the one the tests run on.)
+        # (The window cannot be made larger than the real screen the tests run on, so 'no scrollbars' is only
+        # checked when the window got room for the whole layout.)
         for check in ('screen_laptop', 'screen_design', 'screen_large'):
             with self.subTest(check):
                 result = self.get(check)
@@ -162,8 +162,10 @@ class GuiTest(unittest.TestCase):
                 self.assertAlmostEqual(result['tk scaling'], scale * 96 / 72, places=2, msg='text should be scaled like the layout')
                 self.assertEqual(result['table row height'], round(23 * scale))
                 self.assertEqual(result['cut off text'], [])
-                if check != 'screen_large':
+                window_width, window_height = result['window inside']
+                if window_width >= result['layout'][0]:
                     self.assertFalse(result['horizontal scrollbar shown'], 'the whole layout should fit the screen')
+                if window_height >= result['layout'][1]:
                     self.assertFalse(result['vertical scrollbar shown'], 'the whole layout should fit the screen')
 
     def test_buttons_keep_their_colours_and_react_to_clicks(self):
@@ -179,6 +181,18 @@ class GuiTest(unittest.TestCase):
     def test_plots_are_drawn_with_tk_on_every_system(self):
         # matplotlib's default differs per system (on macOS it is Apple's own window system)
         self.assertEqual(self.get('matplotlib_backend')['backend'], 'tkagg')
+
+    def test_text_and_plots_are_scaled_on_macos_too(self):
+        # Tk on macOS ignores 'tk scaling', so there pySTREAM scales the text sizes themselves.
+        # The same screen should give the same text sizes (in screen pixels) as on Windows.
+        mac, windows = self.get('screen_mac_laptop'), self.get('screen_laptop')
+        self.assertEqual(mac['scale'], windows['scale'])
+        self.assertEqual(mac['layout'], windows['layout'])
+        self.assertEqual(mac['table row height'], windows['table row height'])
+        for name, pixels in windows['text pixels'].items():
+            self.assertAlmostEqual(mac['text pixels'][name], pixels, delta=0.5, msg=name)
+        self.assertAlmostEqual(mac['plot dpi'], 100 * mac['scale'], msg='matplotlib does not scale plots on macOS by itself')
+        self.assertEqual(mac['cut off text'], [])
 
     def test_text_stays_readable_on_a_very_small_screen(self):
         result = self.get('screen_tiny')

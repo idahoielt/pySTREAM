@@ -114,7 +114,7 @@ class TreeviewEdit(ttk.Treeview):
         column_box = self.bbox(selected_iid, column)
         
         #Create entry widget that covers the cell that was clicked
-        entry_edit = ttk.Entry(self.parent_frame)
+        entry_edit = ttk.Entry(self.parent_frame, font=font_table) #the same text size as the cell, on every screen
         
         #Record the column index and item iid
         entry_edit.editing_column_index = column_index
@@ -312,9 +312,19 @@ def px(pixels):
     """A size in pixels of the 1920 x 1080 design, scaled to this screen."""
     return max(1, round(pixels * SCALE))
 
-#Text sizes are given in points. The design uses 96 pixels per inch (72 points), the Windows standard;
-#scaling it here scales all text in the same way as the layout.
-root.tk.call('tk', 'scaling', SCALE * 96 / 72)
+#Text sizes are given in points (with pt() below). The design uses 96 pixels per inch (72 points), the Windows
+#standard. On Windows and Linux, 'tk scaling' scales all text in the same way as the layout. Tk on macOS ignores
+#'tk scaling' (one point is always one screen point there), so on macOS pt() scales the sizes themselves instead.
+if sys.platform == 'darwin':
+    FONT_SCALE = SCALE * 96 / 72
+else:
+    FONT_SCALE = 1
+    root.tk.call('tk', 'scaling', SCALE * 96 / 72)
+
+def pt(size):
+    """A text size in points of the 1920 x 1080 design, for this screen."""
+    return max(1, round(size * FONT_SCALE))
+
 #Plots in the window are scaled in the same way: on Windows and Linux matplotlib does this itself (it follows
 #'tk scaling'), on macOS it is done here. The matplotlib plots saved in the figures folder keep the same size on every screen.
 if sys.platform == 'darwin':
@@ -374,12 +384,12 @@ root.protocol("WM_DELETE_WINDOW", quit_me)
 window.configure(bg=c_white)
 
 #Show that pySTREAM is starting, until the window is ready (see the end of this file)
-starting_label = tk.Label(root, text="Starting pySTREAM...\nThis can take up to a minute.", font=('Arial', 16), bg=c_white, fg=c_dark)
+starting_label = tk.Label(root, text="Starting pySTREAM...\nThis can take up to a minute.", font=('Arial', pt(16)), bg=c_white, fg=c_dark)
 starting_label.place(relx=0.5, rely=0.5, anchor='center')
 root.update()
 
 #Long calculations show a message and a busy cursor while they run (the window cannot react in the meantime)
-busy_label = tk.Label(root, bg=c_accent, fg=c_dark, font=('Arial', 14, 'bold'))
+busy_label = tk.Label(root, bg=c_accent, fg=c_dark, font=('Arial', pt(14), 'bold'))
 def run_while_busy(action, message):
     busy_label.config(text=message)
     busy_label.place(relx=0.5, rely=0.5, anchor='center', width=ww*0.3, height=wh*0.06)
@@ -393,15 +403,15 @@ def run_while_busy(action, message):
         root.config(cursor='')
 
 #fonts
-font_header = font.Font(family='Nueva Std Cond', size='24', weight='bold')
-font_subheader= font.Font(family='Nueva Std Cond', size='20', weight='bold')
-font_subsubheader= font.Font(family='Nueva Std Cond', size='17', weight='bold')
-font_subsubsubheader = font.Font(family='Nueva Std Cond', size='14', weight='bold')
-font_button = font.Font(family='Nueva Std Cond', size='12', weight='bold')
-font_text = font.Font(family='Nueva Std Cond', size='10')
-font_text_bold = font.Font(family='Nueva Std Cond', size='10', weight='bold')
-font_table_heading = ('Arial', 9, 'bold')
-font_table = ('Arial', 9)
+font_header = font.Font(family='Nueva Std Cond', size=pt(24), weight='bold')
+font_subheader= font.Font(family='Nueva Std Cond', size=pt(20), weight='bold')
+font_subsubheader= font.Font(family='Nueva Std Cond', size=pt(17), weight='bold')
+font_subsubsubheader = font.Font(family='Nueva Std Cond', size=pt(14), weight='bold')
+font_button = font.Font(family='Nueva Std Cond', size=pt(12), weight='bold')
+font_text = font.Font(family='Nueva Std Cond', size=pt(10))
+font_text_bold = font.Font(family='Nueva Std Cond', size=pt(10), weight='bold')
+font_table_heading = ('Arial', pt(9), 'bold')
+font_table = ('Arial', pt(9))
 
 #table style
 style = ttk.Style()
@@ -409,8 +419,8 @@ style.theme_use('default')
 style.configure('Treeview', background = c_white, foreground = c_black, rowheight = px(23), fieldbackground = c_white, relief = 'flat', borderwidth = 0, font = font_table)  
 style.map('Treeview', background=[('selected', c_midlight)], foreground=[('selected', c_black)])
 style.layout('Treeview', [('Treeview.treearea', {'sticky': 'nswe'})]) #tables without a border (it showed as a white outline around the headings)
-style.configure('Amounts.Treeview', background = c_lightish, fieldbackground = c_lightish, font = ('Arial', 9, 'italic')) #read-only amounts next to the production shares
-style.configure('Sums.Treeview', font = ('Arial', 9, 'italic')) #read-only sums next to the transport fuel shares
+style.configure('Amounts.Treeview', background = c_lightish, fieldbackground = c_lightish, font = ('Arial', pt(9), 'italic')) #read-only amounts next to the production shares
+style.configure('Sums.Treeview', font = ('Arial', pt(9), 'italic')) #read-only sums next to the transport fuel shares
 style.configure('Treeview.Heading', background = c_mid, foreground = c_white, relief = 'flat', font=font_table_heading, padding = (px(3), 0)) #heading text starts where the cell text below it starts
 style.map('Treeview.Heading', background = [('active', c_mid)])
 style.configure('Treeview.Cell', padding = (px(4), 0)) #space between the left edge of a cell and its text, as in the headings
@@ -1153,7 +1163,7 @@ def heat_sums():
     label_heat_sum_value = [0, 0, 0, 0]
     
     for i in range(len(label_heat_sum_value)):
-        label_heat_sum_value[i] = tk.LabelFrame(heat_frame, text="{:.2%}".format(heat_sums[i]), font=('Arial', 9,  'italic'), labelanchor='sw', bd=0, bg=c_white, fg=c_black)
+        label_heat_sum_value[i] = tk.LabelFrame(heat_frame, text="{:.2%}".format(heat_sums[i]), font=('Arial', pt(9),  'italic'), labelanchor='sw', bd=0, bg=c_white, fg=c_black)
         label_heat_sum_value[i].place(x=ww*0.166+int(ww*0.065)*i, y=wh*0.27, height=wh*0.021, width=int(ww*0.065))
    
     
@@ -1324,14 +1334,14 @@ def transportAllocation_sums():
     allocation_sums=[0,0]
     label_Allocation_sum_value = ['']*2
     allocation_sums[0] = df_TransportWork_SC['Allocation of transport work'][:5].sum()
-    label_Allocation_sum_value[0] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[0]), font=('Arial', 9, 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
+    label_Allocation_sum_value[0] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[0]), font=('Arial', pt(9), 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
     label_Allocation_sum_value[0].place(x=x_pos+ww*0.052, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.038)
     
     label_AllocationGoods_sum = tk.LabelFrame(transportDetails_frame, text="Goods sum", font=font_text_bold, bd=0, bg=c_mid, fg=c_white, labelanchor='s')
     label_AllocationGoods_sum. place(x=x_pos+ww*0.09, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.052)
     
     allocation_sums[1] = df_TransportWork_SC['Allocation of transport work'][5:].sum()
-    label_Allocation_sum_value[1] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[1]), font=('Arial', 9, 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
+    label_Allocation_sum_value[1] = tk.LabelFrame(transportDetails_frame, text="{:.2%}".format(allocation_sums[1]), font=('Arial', pt(9), 'italic'), bd=0, bg=c_white, fg=c_black, labelanchor='s')
     label_Allocation_sum_value[1].place(x=x_pos+ww*0.14, y=y_pos_consumption+wh*0.285, height=wh*0.02, width=ww*0.038)
     
     pad_frame1 = tk.Frame(transportDetails_frame, bg=c_mid, bd=0)
@@ -1658,7 +1668,7 @@ def DH_piePlot():
     fig, ax = plot_pie(pie_data, [PLOT_COLORS[6],PLOT_COLORS[4],PLOT_COLORS[3]])
     canvas_FEC = FigureCanvasTkAgg(fig, master=DH_frame)
     canvas_FEC.get_tk_widget().place(x=ww*0.029 , y=wh*0.491, width = ww*0.125, height = ww*0.125) 
-    label_DH_piePlot = tk.LabelFrame(DH_frame, text='District heat production sources', font=('Arial', 9, 'bold'), bd=0, bg=c_light, fg=c_mid)
+    label_DH_piePlot = tk.LabelFrame(DH_frame, text='District heat production sources', font=('Arial', pt(9), 'bold'), bd=0, bg=c_light, fg=c_mid)
     label_DH_piePlot.place(x=ww*0.025, y=wh*0.473, height=wh*0.0213, width = ww*0.18)
 #------------------------------------------------------------------------------
 
@@ -1763,7 +1773,7 @@ def electricity_c_piePlot():
     fig, ax = plot_pie(pie_data, PLOT_COLORS[0:3])
     canvas_FEC = FigureCanvasTkAgg(fig, master=productionPlots_frame)
     canvas_FEC.get_tk_widget().place(x=ww*0.05, y=wh*0.05, width = ww*0.127, height = ww*0.127)
-    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='Electricity production categories', font=('Arial', 9, 'bold'), bd=0, bg=c_light, fg=c_dark)
+    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='Electricity production categories', font=('Arial', pt(9), 'bold'), bd=0, bg=c_light, fg=c_dark)
     label_electricity_c_piePlot.place(x=ww*0.05, y=wh*0.02, height=wh*0.0213, width = ww*0.18)
     
 def DH_c_piePlot():
@@ -1772,7 +1782,7 @@ def DH_c_piePlot():
     ax.set_title('District heat production categories incl. CHP', fontsize=9, color=c_black, weight='bold')
     canvas_FEC = FigureCanvasTkAgg(fig, master=productionPlots_frame)
     canvas_FEC.get_tk_widget().place(x=ww*0.22, y=wh*0.05, width = ww*0.127, height = ww*0.127)    
-    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='District heat production categories incl. CHP', font=('Arial', 9, 'bold'), bd=0, bg=c_light, fg=c_dark)
+    label_electricity_c_piePlot = tk.LabelFrame(productionPlots_frame, text='District heat production categories incl. CHP', font=('Arial', pt(9), 'bold'), bd=0, bg=c_light, fg=c_dark)
     label_electricity_c_piePlot.place(x=ww*0.2, y=wh*0.02, height=wh*0.0213, width = ww*0.18)
 
 #------------------------------------------------------------------------------
@@ -2376,9 +2386,9 @@ def CO2_table_fuel(frame, df_fuel_CO2):
     total_CO2 = ["{:.2f}".format(value) for value in total_CO2]
     table_CO2_fuel.insert("", 'end', values=total_CO2, text='Total emissions') 
     
-    total_frame1 = tk.LabelFrame(frame, text='    Total emissions', bg=c_white, fg=c_black, font=('Arial', 9, 'bold'), bd=0)
-    total_frame2 = tk.LabelFrame(frame, text=total_CO2[0], bg=c_white, fg=c_black, font=('Arial', 9, 'bold'), bd=0)
-    total_frame3 = tk.LabelFrame(frame, text=total_CO2[1], bg=c_white, fg=c_black, font=('Arial', 9, 'bold'), bd=0)
+    total_frame1 = tk.LabelFrame(frame, text='    Total emissions', bg=c_white, fg=c_black, font=('Arial', pt(9), 'bold'), bd=0)
+    total_frame2 = tk.LabelFrame(frame, text=total_CO2[0], bg=c_white, fg=c_black, font=('Arial', pt(9), 'bold'), bd=0)
+    total_frame3 = tk.LabelFrame(frame, text=total_CO2[1], bg=c_white, fg=c_black, font=('Arial', pt(9), 'bold'), bd=0)
     
     
     for i in range(len(heading_CO2_fuel)):

@@ -73,12 +73,27 @@ if check == 'missing_data_file':
 # The screen_* checks pretend the screen has another size. The window then cannot fill the screen ('zoomed'),
 # so pySTREAM uses the screen size minus 100 pixels for the taskbar and title bar: the layout gets width x height.
 SIMULATED_SCREENS = {'screen_laptop': (1366, 768), 'screen_design': (1920, 1080),
-                     'screen_large': (2560, 1440), 'screen_tiny': (1024, 600)}
+                     'screen_large': (2560, 1440), 'screen_tiny': (1024, 600),
+                     'screen_mac_laptop': (1366, 768)}
 if check in SIMULATED_SCREENS:
     width, height = SIMULATED_SCREENS[check]
     tkinter.Misc.winfo_screenwidth = lambda self: width
     tkinter.Misc.winfo_screenheight = lambda self: height + 100
     tkinter.Wm.wm_state = tkinter.Wm.state = lambda self, newstate=None: 'normal' if newstate is None else None
+
+if check == 'screen_mac_laptop':
+    # Pretend to be macOS: pySTREAM takes its macOS path (sys.platform), and Tk counts one point as one
+    # screen point, as Tk on macOS does ('tk scaling' 1.0). The libraries are loaded first, as on Windows.
+    import numpy, pandas, numpy_financial, openpyxl, plotly.io, PIL.ImageTk
+    import matplotlib
+    matplotlib.use('TkAgg')
+    import matplotlib.pyplot, matplotlib.backends.backend_tkagg
+    sys.platform = 'darwin'
+    tk_init = tkinter.Tk.__init__
+    def mac_tk_init(self, *args, **kwargs):
+        tk_init(self, *args, **kwargs)
+        self.tk.call('tk', 'scaling', 1.0)
+    tkinter.Tk.__init__ = mac_tk_init
 
 if check == 'matplotlib_backend':
     # As on macOS, matplotlib would choose another way to draw than Tk (here: 'agg', which draws no windows)
@@ -423,6 +438,12 @@ def screen_layout():
     out = {'scale': gui.SCALE, 'layout': [gui.ww, gui.wh], 'screen': list(SIMULATED_SCREENS[check]),
            'tk scaling': float(root.tk.call('tk', 'scaling')), 'table row height': gui.style.lookup('Treeview', 'rowheight'),
            'cut off text': []}
+    # text sizes in screen pixels: points times Tk's pixels per point
+    import tkinter.font
+    import matplotlib.pyplot as plt
+    out['text pixels'] = {name: round(tkinter.font.Font(font=getattr(gui, name)).actual('size') * out['tk scaling'], 2)
+                          for name in ('font_header', 'font_button', 'font_text', 'font_table')}
+    out['plot dpi'] = plt.rcParams['figure.dpi']
     pages = {'graphs': gui.graphs_button_action, 'consumption': gui.consumption_button_action,
              'production': gui.production_button_action, 'base year': gui.by_button_action,
              'scenario': gui.scenario_button_action, 'transport': gui.transport_button_action,
@@ -431,6 +452,7 @@ def screen_layout():
         show()
         root.update()
         out['cut off text'] += cut_off_text(page)
+    out['window inside'] = [root.winfo_width(), root.winfo_height()]
     out['horizontal scrollbar shown'] = gui.scroll_x.winfo_ismapped() == 1
     out['vertical scrollbar shown'] = gui.scroll_y.winfo_ismapped() == 1
     root.withdraw()
@@ -475,6 +497,7 @@ CHECKS = {
     'screen_design': screen_layout,
     'screen_large': screen_layout,
     'screen_tiny': screen_layout,
+    'screen_mac_laptop': screen_layout,
     'small_screen': small_screen,
     'time_series_on_demand': time_series_on_demand,
     'scenario_files': scenario_files,

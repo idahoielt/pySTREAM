@@ -186,7 +186,7 @@ GUI_CHECKS = ['co2_totals', 'update_matches_fresh_start', 'update_time_series_bu
               'file_open_in_excel', 'missing_data_file', 'input_validation',
               'scenario_files', 'time_series_on_demand', 'small_screen',
               'screen_laptop', 'screen_design', 'screen_large', 'screen_tiny', 'button_click',
-              'matplotlib_backend']
+              'matplotlib_backend', 'screen_mac_laptop']
 
 
 @lru_cache(maxsize=None)
