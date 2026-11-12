@@ -21,8 +21,15 @@ https://www.python.org/downloads/.
 2. Install it by double-clicking the install script in the pySTREAM folder:
    - **Windows:** `install_windows.bat`
    - **macOS:** `install_mac.command`. The first time, macOS may refuse to open a
-     downloaded script; then right-click (or Ctrl-click) it, choose **Open** and
-     confirm.
+     script downloaded from the internet ("Apple could not verify ..."). Then:
+     1. Close the message (do not move the script to the Trash).
+     2. Open **System Settings → Privacy & Security**, scroll down to **Security**
+        and click **Open Anyway** next to the message about the script.
+     3. Confirm with **Open Anyway** (and your Mac password if asked).
+
+     On macOS 14 (Sonoma) or older you can instead right-click (or Ctrl-click) the
+     script, choose **Open** and confirm. The same can happen the first time you open
+     `start_mac.command`; allow it in the same way.
 
    This takes a few minutes. It creates a Python environment in the `.venv` folder and
    installs the packages pySTREAM needs (listed in `requirements.txt`).
