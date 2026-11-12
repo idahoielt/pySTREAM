@@ -52,20 +52,10 @@ pySTREAM has not been tested on Linux.
 
 ### With conda
 
-If you use Anaconda or Miniconda, you can install pySTREAM in a conda environment instead.
-In a terminal (on Windows: the Anaconda Prompt), from the pySTREAM folder:
-
-```bash
-conda env create -f environment.yml
-conda activate pystream
-python program/pySTREAM.py            # Windows
-python program/pySTREAM_mac.py        # macOS
-```
-
+See [Install with conda](../README.md#install-with-conda-optional) in the README.
 `environment.yml` takes Python from conda-forge (with tkinter) and installs the packages
-from `requirements.txt` with pip. The start scripts (`start_windows.bat`,
-`start_mac.command`) only work with the `.venv` environment of the install scripts, not
-with conda.
+from `requirements.txt` with pip, so the package versions are only listed in
+`requirements.txt`.
 
 ## Tests
 

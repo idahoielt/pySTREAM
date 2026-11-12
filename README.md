@@ -9,7 +9,8 @@ It is a Python version of the Excel model [STREAM](https://www.esymodels.man.dtu
 and gives the same results.
 
 **Contents:** [Install on Windows](#install-on-windows) ·
-[Install on macOS](#install-on-macos) · [Your first scenario](#your-first-scenario) ·
+[Install on macOS](#install-on-macos) · [Install with conda](#install-with-conda-optional) ·
+[Your first scenario](#your-first-scenario) ·
 [Saving your work](#saving-your-work) · [If something goes wrong](#if-something-goes-wrong) ·
 [More information](#more-information)
 
@@ -58,6 +59,37 @@ script downloaded from the internet the first time:
 
 On macOS 14 (Sonoma) or older you can instead right-click (or Ctrl-click) the script,
 choose **Open** and confirm. This can happen for both scripts, the first time you open each.
+
+## Install with conda (optional)
+
+If you already use Anaconda or Miniconda, you can install pySTREAM with conda instead of
+the install script. Python is then installed by conda, so you can skip step 1 above.
+
+1. **Download and unzip pySTREAM** as in steps 2 and 3 above.
+2. **Open a terminal in the pySTREAM folder:** on Windows, open the **Anaconda Prompt**;
+   on macOS, open **Terminal**. Then go to the folder with `cd`, for example:
+
+   ```bash
+   cd Documents/pySTREAM-main
+   ```
+
+3. **Install** (once; this takes a few minutes). It creates a conda environment called
+   `pystream` with Python and the packages pySTREAM needs:
+
+   ```bash
+   conda env create -f environment.yml
+   ```
+
+4. **Start pySTREAM** (every time, from the pySTREAM folder):
+
+   ```bash
+   conda activate pystream
+   python program/pySTREAM.py          # Windows
+   python program/pySTREAM_mac.py      # macOS
+   ```
+
+   Keep the terminal open while you use pySTREAM. The start scripts
+   (`start_windows.bat`, `start_mac.command`) do not work with conda.
 
 ## Your first scenario
 
@@ -134,7 +166,7 @@ Every plot is also saved as a picture in the `figures` folder, for use in a repo
 - **Comparison with the Excel STREAM model:** how the results compare, and where they
   deliberately differ: [docs/comparison-with-excel-model.md](docs/comparison-with-excel-model.md).
 - **Changes** since the original 2023 version: [docs/CHANGELOG.md](docs/CHANGELOG.md).
-- **For developers** (folders, setting up by hand or with conda, tests):
+- **For developers** (folders, setting up by hand, tests):
   [docs/developers.md](docs/developers.md).
 
 ## How to cite
