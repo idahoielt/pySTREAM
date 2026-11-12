@@ -185,7 +185,7 @@ GUI_CHECKS = ['co2_totals', 'update_matches_fresh_start', 'update_time_series_bu
               'sankey_image_fails', 'sankey_image_hangs', 'close_window', 'economy_page', 'plots',
               'file_open_in_excel', 'missing_data_file', 'input_validation',
               'scenario_files', 'time_series_on_demand', 'small_screen',
-              'screen_laptop', 'screen_design', 'screen_large', 'screen_tiny']
+              'screen_laptop', 'screen_design', 'screen_large', 'screen_tiny', 'button_click']
 
 
 @lru_cache(maxsize=None)

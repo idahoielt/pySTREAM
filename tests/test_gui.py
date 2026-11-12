@@ -166,6 +166,16 @@ class GuiTest(unittest.TestCase):
                     self.assertFalse(result['horizontal scrollbar shown'], 'the whole layout should fit the screen')
                     self.assertFalse(result['vertical scrollbar shown'], 'the whole layout should fit the screen')
 
+    def test_buttons_keep_their_colours_and_react_to_clicks(self):
+        # pySTREAM's own buttons, because tk.Button ignores the background colour on macOS
+        result = self.get('button_click')
+        self.assertEqual(result['colours'], ['#92BAD8', '#F5F5F5'])
+        self.assertEqual(result['state while pressed'], 'active')
+        self.assertEqual(result['colours while pressed'], ['#27567C', '#F5F5F5'])
+        self.assertFalse(result['CO2 page after letting go outside'], 'letting go outside the button should not click it')
+        self.assertTrue(result['CO2 page after click'])
+        self.assertEqual(result['state after click'], 'normal')
+
     def test_text_stays_readable_on_a_very_small_screen(self):
         result = self.get('screen_tiny')
         self.assertEqual(result['scale'], 0.6, 'the layout should not get smaller than the minimum')

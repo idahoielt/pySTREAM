@@ -180,6 +180,10 @@ scenarios in `tests/` ("default" is the data shipped with pySTREAM).
 
 ### Usability
 
+- macOS: the buttons keep their colours. On macOS, Tk draws its standard
+  buttons as Mac buttons and ignores their colour, which made the white text of
+  the menu buttons hard to read; pySTREAM now uses its own buttons, which look
+  the same on every system.
 - pySTREAM adapts to the screen it is started on: the whole layout, text,
   tables and plots are scaled to fill it, from small laptops to 4K screens
   (the layout is designed for 1920 x 1080 pixels). On Windows with display

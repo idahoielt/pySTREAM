@@ -172,7 +172,7 @@ def chp_surplus_warning():
 def sankey_buttons():
     """Texts of the buttons in the Graphs page's two diagram areas (a button with an image has no text)."""
     frames = [gui.graphs_sc_frame, gui.graphs_by_frame]
-    return {'button_texts': [w.cget('text') for frame in frames for w in frame.winfo_children() if isinstance(w, tkinter.Button)]}
+    return {'button_texts': [w.cget('text') for frame in frames for w in frame.winfo_children() if isinstance(w, gui.FlatButton)]}
 
 
 def close_window():
@@ -266,7 +266,7 @@ def input_validation():
     co2_entry = [w for w in gui.economy_SC_frame.winfo_children() if isinstance(w, tkinter.ttk.Entry)][-1]
     co2_entry.delete(0, 'end'); co2_entry.insert(0, '-10')
     before = len(messages)
-    [w for w in gui.economy_SC_frame.winfo_children() if isinstance(w, tkinter.Button) and w.cget('text') == 'Save price changes'][-1].invoke()
+    [w for w in gui.economy_SC_frame.winfo_children() if isinstance(w, gui.FlatButton) and w.cget('text') == 'Save price changes'][-1].invoke()
     out['co2 price -10'] = {'message': messages[before][2] if len(messages) > before else None, 'co2 price now': gui.co2_price_SC}
 
     data_file = os.path.join(program_dir, 'data', 'Scenario Data.xlsx')
@@ -433,7 +433,31 @@ def screen_layout():
     return out
 
 
+def button_click():
+    """Click the 'CO2 emissions' menu button with the mouse: once normally, once letting go outside the button."""
+    root, button = gui.root, gui.CO2_button
+    root.deiconify()
+    gui.graphs_button_action()
+    root.update()
+    out = {'colours': [button.cget('bg'), button.cget('fg')]}
+    button.event_generate('<ButtonPress-1>', x=5, y=5)
+    root.update()
+    out['state while pressed'] = str(button.cget('state'))
+    out['colours while pressed'] = [button.cget('activebackground'), button.cget('activeforeground')]
+    button.event_generate('<ButtonRelease-1>', x=-20, y=5)  # let go outside the button
+    root.update()
+    out['CO2 page after letting go outside'] = gui.CO2_frame.winfo_ismapped() == 1
+    button.event_generate('<ButtonPress-1>', x=5, y=5)
+    button.event_generate('<ButtonRelease-1>', x=5, y=5)
+    root.update()
+    out['CO2 page after click'] = gui.CO2_frame.winfo_ismapped() == 1
+    out['state after click'] = str(button.cget('state'))
+    root.withdraw()
+    return out
+
+
 CHECKS = {
+    'button_click': button_click,
     'screen_laptop': screen_layout,
     'screen_design': screen_layout,
     'screen_large': screen_layout,
