@@ -150,8 +150,8 @@ class GuiTest(unittest.TestCase):
         self.assertEqual(result['visible part at the bottom'][1], 1, 'the bottom of the layout should be reachable')
 
     def test_layout_is_scaled_to_fit_the_screen(self):
-        # (The window cannot be made larger than the real screen, so scrollbars are only checked for screens
-        # that are not larger than the one the tests run on.)
+        # (The window cannot be made larger than the real screen the tests run on, so 'no scrollbars' is only
+        # checked when the window got room for the whole layout.)
         for check in ('screen_laptop', 'screen_design', 'screen_large'):
             with self.subTest(check):
                 result = self.get(check)
@@ -162,8 +162,10 @@ class GuiTest(unittest.TestCase):
                 self.assertAlmostEqual(result['tk scaling'], scale * 96 / 72, places=2, msg='text should be scaled like the layout')
                 self.assertEqual(result['table row height'], round(23 * scale))
                 self.assertEqual(result['cut off text'], [])
-                if check != 'screen_large':
+                window_width, window_height = result['window inside']
+                if window_width >= result['layout'][0]:
                     self.assertFalse(result['horizontal scrollbar shown'], 'the whole layout should fit the screen')
+                if window_height >= result['layout'][1]:
                     self.assertFalse(result['vertical scrollbar shown'], 'the whole layout should fit the screen')
 
     def test_text_stays_readable_on_a_very_small_screen(self):

@@ -427,6 +427,7 @@ def screen_layout():
         show()
         root.update()
         out['cut off text'] += cut_off_text(page)
+    out['window inside'] = [root.winfo_width(), root.winfo_height()]
     out['horizontal scrollbar shown'] = gui.scroll_x.winfo_ismapped() == 1
     out['vertical scrollbar shown'] = gui.scroll_y.winfo_ismapped() == 1
     root.withdraw()
